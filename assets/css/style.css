@@ -1,0 +1,18 @@
+/* General Elements*/
+body {
+    background-image: url("../images/stageone.jpg");
+    background-size: 100%
+    
+}
+
+.mainform {
+	background-color: white;
+    width: 60%;
+    margin-top: 10%;
+    margin-left: 20%;
+}
+div{
+	border: solid 2px rgb(228, 20, 20);
+	padding: 10px;
+    border-radius: 15px;
+}
