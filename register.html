@@ -18,8 +18,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
     <!-- moment.js -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <!-- javaScript Link -->
-    <script type="text/javascript" src="assets/javascript/data.js"></script>
+    
 
     <title>Stomping luck bricks</title>
 </head>
@@ -33,26 +32,29 @@
             width: 100%;
         }
     </style>
-    <!-- Login form -->
-    <div class="loginform">
-        <h3>Already a member</h3>
+
+    <!-- Registration Form -->
+    <div class="mainform">
+        <h3>Fill this out below to create an account.</h3>
         <form role="form">
             <div class="form-group">
+                <label for="name-input">First Name</label>
+                <input class="form-control" id="name-input" type="text" required>
+                <label for="last-input">Last Name</label>
+                <input class="form-control" id="last-input" type="text">
                 <label for="email-input">Email</label>
-                <input class="form-control" id="email-input" type="email">
-                <label for="password-input">Password Name</label>
-                <input class="form-control" id="password-input" type="text">
+                <input type="email" name="email" class="form-control" id="email-input" required>
+                <label for="password-input">Password</label>
+                <input class="form-control" id="password-input" type="psw" required>
+               
+                <label for="zipcode-input">Zip Code</label>
+                <input class="form-control" id="zipcode-input" type="text">
             </div>
-            <a class="btn btn-default" id="login" type="submit" href="second.html">Login</a>
-            <a class="btn btn-default" href="register.html" id="register" type="submit">Register</a>
+            <button onclick="location.href='second.html';" class="btn btn-default" id="add-person" type="submit">Submit</button>
         </form>
     </div>
-
-
-    </div>
-
-
-
+<!-- javaScript Link -->
+<script type="text/javascript" src="assets/javascript/data.js"></script>
 </body>
 
 </html>
