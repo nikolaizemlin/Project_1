@@ -1,16 +1,19 @@
 /* General Elements*/
 body {
     
-    background-size: 100%
+    width: 100%
     
 }
 
 .mainform {
 	background-color: white;
-    width: 60%;
+    width: 34%;
     margin-top: 10%;
-    margin-left: 20%;
-    border: solid 2px rgb(185, 40, 40);
+
+
+    margin-left: 33%;
+    border: solid 2px rgb(228, 20, 20);
+
 	padding: 10px;
     border-radius: 15px;
 }
