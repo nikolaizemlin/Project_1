@@ -14,37 +14,49 @@ firebase.initializeApp(config);
 var dataRef = firebase.database();
 
 // Initial Values
-var fname = "";
-var lname = "";
-var email = "";
-var password = "";
+var FirstName = "";
+var LastName = "";
+var Email = "";
+var Password = "";
+var ZipCode = "";
 
 // Capture Button Click
 $("#add-person").on("click", function() {
 
-  fname = $("#fname-input").val().trim();
-  lname = $("#lname-input").val().trim();
-  email = $("#email-input").val().trim();
-  password = $("#password-input").val().trim();
+FirstName = $("#fname-input").val().trim();
+LastName = $("#lname-input").val().trim();
+Email = $("#email-input").val().trim();
+Password = $("#password-input").val().trim();
+ZipCode = $("#zipcode-input").val().trim();
 
-  // Push
+console.log("fname-input");
+console.log("lname-input");
+console.log("password-input");
+
+	// Push
   dataRef.ref().push({
 
-    fname: fname,
-    lname: lname,
-    email: email,
-    password: password,
-  
-  )}; 
-  console.log(add-person);
-    // clear text
+    FirstName: FirstName,
+    LastName: LastName,
+    Email: Email,
+    Password: Password,
+    ZipCode: ZipCode,
+    // dateAdded: firebase.database.ServerValue.TIMESTAMP
+  });
+
+// console.log successful add
+console.log("fname added");
+
+// clear text
 $("#fname-input").val("");
 $("#lname-input").val("");
 $("#email-input").val("");
 $("#password-input").val("");
+$("#zipcode-input").val("");
 
    // No refresh
   return false;
- 
-  )}; 
+  });
+
+
 
