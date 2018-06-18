@@ -4,16 +4,21 @@ body {
     width: 100%
     
 }
-
+.loginform {
+    background-color: white;
+    width: 34%;
+    margin-top: 10%;
+    margin-left: 33%;
+    border: solid 2px rgb(228, 20, 20);
+	padding: 10px;
+    border-radius: 15px;
+}
 .mainform {
 	background-color: white;
     width: 34%;
     margin-top: 10%;
-
-
     margin-left: 33%;
     border: solid 2px rgb(228, 20, 20);
-
 	padding: 10px;
     border-radius: 15px;
 }
