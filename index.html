@@ -18,42 +18,41 @@
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
     <!-- moment.js -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!-- javaScript Link -->
+    <script type="text/javascript" src="assets/javascript/data.js"></script>
 
     <title>Stomping luck bricks</title>
 </head>
 
 <!-- background image -->
+
 <body>
     <style>
         body {
-        background-image: url("http://www.exitwell.com/2017/wp-content/uploads/2015/07/style-dance-desktop-stage-lighting-crowd-audience-hand-emotions-theme-mood-27311011.jpg");
-    width: 100%;   
-    }
-        </style>
-
-<!-- Comment added to test branching -->
-    <div class="mainform">
-        <h3>Fill this out below to create an account.</h3>
-            <form role="form">
-                <div class="form-group">
-                    <label for="name-input">First Name</label>
-                    <input class="form-control" id="name-input" type="text">
-                    <label for="last-input">Last Name</label>
-                    <input class="form-control" id="last-input" type="text">
-                    <label for="email-input">Email</label>
-                    <input type="email" name="email" class="form-control" id="email-input">
-                    <label for="password-input">Password</label>
-                    <input class="form-control" id="password-input" type="text"> 
-                    <label for="zipcode-input">Zip Code</label>
-                    <input class="form-control" id="zipcode-input" type="text">
-                </div>
-                <button onclick="location.href='second.html';" class="btn btn-default" id="add-person" type="submit">Submit</button>
-            </form>
+            background-image: url("http://www.exitwell.com/2017/wp-content/uploads/2015/07/style-dance-desktop-stage-lighting-crowd-audience-hand-emotions-theme-mood-27311011.jpg");
+            width: 100%;
+        }
+    </style>
+    <!-- Login form -->
+    <div class="loginform">
+        <h3>Already a member</h3>
+        <form role="form">
+            <div class="form-group">
+                <label for="email-input">Email</label>
+                <input class="form-control" id="email-input" type="email">
+                <label for="password-input">Password Name</label>
+                <input class="form-control" id="password-input" type="text">
+            </div>
+            <button class="btn btn-default" id="login" type="submit">Login</button>
+            <button href="register.html" class="btn btn-default" id="Register" type="submit">Register</button>
+        </form>
     </div>
 
 
-    <!-- javaScript Link -->
-    <script type="text/javascript" src="assets/javascript/data.js"></script>
+    </div>
+
+
+
 </body>
 
 </html>
