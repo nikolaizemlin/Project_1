@@ -49,6 +49,25 @@ $("#add-person").on("click", function (event) {
   $("#zipcode-input").val("");
 });
 
+var frmvalidator = new Validator("mainform");
+frmvalidator.addValidation("name","req","Please enter your First Name");
+frmvalidator.addValidation("name","maxlen=20",
+       "Max length for name is 20");
+
+frmvalidator.addValidation("last","req");
+frmvalidator.addValidation("last","maxlen=20");
+
+frmvalidator.addValidation("email","maxlen=50");
+frmvalidator.addValidation("email","req");
+frmvalidator.addValidation("email","email");
+
+frmvalidator.addValidation("zipcode","maxlen=5");
+frmvalidator.addValidation("zipcode","numeric");
+
+frmvalidator.addValidation("password","maxlen=50");
+frmvalidator.addValidation("password","neelmnt=name",
+"The password should not be same as username");
+
 
 
 
