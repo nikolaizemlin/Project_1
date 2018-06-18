@@ -13,50 +13,41 @@ firebase.initializeApp(config);
 
 var dataRef = firebase.database();
 
+// Create a variable to reference the database.
+var database = firebase.database();
+
 // Initial Values
-var FirstName = "";
-var LastName = "";
-var Email = "";
-var Password = "";
-var ZipCode = "";
+var name = "";
+var last = "";
+var email = "";
+var zipcode = "";
 
 // Capture Button Click
-$("#add-person").on("click", function() {
+$("#add-person").on("click", function (event) {
+  event.preventDefault();
 
-FirstName = $("#fname-input").val().trim();
-LastName = $("#lname-input").val().trim();
-Email = $("#email-input").val().trim();
-Password = $("#password-input").val().trim();
-ZipCode = $("#zipcode-input").val().trim();
-
-console.log("fname-input");
-console.log("lname-input");
-console.log("password-input");
-
-	// Push
-  dataRef.ref().push({
-
-    FirstName: FirstName,
-    LastName: LastName,
-    Email: Email,
-    Password: Password,
-    ZipCode: ZipCode,
-    // dateAdded: firebase.database.ServerValue.TIMESTAMP
+  // Grabbed values from text boxes
+  name = $("#name-input").val().trim();
+  last = $("#last-input").val().trim();
+  email = $("#email-input").val().trim();
+  zipcode = $("#zipcode-input").val().trim();
+  // Code for handling the push
+  database.ref().push({
+    name: name,
+    email: email,
+    last: last,
+    zipcode: zipcode,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
 
-// console.log successful add
-console.log("fname added");
+  // clear text
+  $("#name-input").val("");
+  $("#last-input").val("");
+  $("#email-input").val("");
+  $("#zipcode-input").val("");
+});
 
-// clear text
-$("#fname-input").val("");
-$("#lname-input").val("");
-$("#email-input").val("");
-$("#password-input").val("");
-$("#zipcode-input").val("");
 
-   // No refresh
-  return false;
-  });
 
 
 
