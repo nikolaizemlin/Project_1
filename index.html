@@ -22,26 +22,33 @@
     <title>Stomping luck bricks</title>
 </head>
 
+<!-- background image -->
 <body>
+    <style>
+        body {
+        background-image: url("http://www.exitwell.com/2017/wp-content/uploads/2015/07/style-dance-desktop-stage-lighting-crowd-audience-hand-emotions-theme-mood-27311011.jpg");
+    width: 100%;   
+    }
+        </style>
 
+<!-- Comment added to test branching -->
     <div class="mainform">
         <h3>Fill this out below to create an account.</h3>
             <form role="form">
                 <div class="form-group">
-                    <label for="fname-input">First Name</label>
-                    <input class="form-control" id="fname-input" type="text">
-                    <label for="lname-input">Last Name</label>
-                    <input class="form-control" id="lname-input" type="text">
+                    <label for="name-input">First Name</label>
+                    <input class="form-control" id="name-input" type="text">
+                    <label for="last-input">Last Name</label>
+                    <input class="form-control" id="last-input" type="text">
                     <label for="email-input">Email</label>
                     <input class="form-control" id="email-input" type="text">
                     <label for="password-input">Password</label>
-                    <input class="form-control" id="password-input" type="text">
+                    <input class="form-control" id="password-input" type="text"> 
                     <label for="zipcode-input">Zip Code</label>
-                    <input class="form-control" id="password-input" type="text">
+                    <input class="form-control" id="zipcode-input" type="text">
                 </div>
-                <button class="btn btn-default" id="add-person" type="submit">Submit</button>
+                <button onclick="location.href='second.html';" class="btn btn-default" id="add-person" type="submit">Submit</button>
             </form>
-       
     </div>
 
 
