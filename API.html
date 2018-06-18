@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>API Test</title>
+</head>
+
+<body>
+    <div id="buttons">
+        <button data-artist="Keith Urban">
+            Keith Urban
+        </button>
+    </div>
+
+    <div id="events-appear-here">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("button").on("click", function () {
+
+            var artist = $(this).attr("data-artist");
+            var queryURL = "http://app.ticketmaster.com/discovery/v1/events.json?keyword=" + artist + "&apikey=GEqhJFCV9Y6TonOIwSahrRaPtQ3VnFGK&callback=myFunction";
+
+            console.log($(this).attr("data-artist"));
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+
+                for (i = 0; i < 5; i++) {
+                    console.log(response._embedded.events[i]);
+                    var eventDiv = $("<div class='item'>");
+                    var eventName = response._embedded.events[i]._embedded.venue[0].name;
+                    var eventDate = response._embedded.events[i].dates.displayOptions.range.localEndDate;
+                    var address = response._embedded.events[i]._embedded.venue[0].address.line2;
+                    var eventNameText = $("<p>").text(eventName);
+                    var eventDateText = $("<p>").text(eventDate);
+                    var addressText = $("<p>").text(address);
+                    eventDiv.prepend(addressText);
+                    eventDiv.prepend(eventDateText);
+                    eventDiv.prepend(eventName);
+                    $("#events-appear-here").append(eventDiv);
+                    $("#events-appear-here").append("<br>");
+                };
+            });
+        });
+    </script>
+</body>
+
+</html>
