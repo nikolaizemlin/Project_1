@@ -10,10 +10,39 @@ body {
     width: 60%;
     margin-top: 10%;
     margin-left: 20%;
-}
-div{
-	border: solid 2px rgb(228, 20, 20);
+    border: solid 2px rgb(185, 40, 40);
 	padding: 10px;
     border-radius: 15px;
 }
 
+
+h1{
+    color:  black;
+    font-size:30px;
+    margin-left:20px;
+    margin-top:20px;
+}
+
+h2{
+    font-size:30px;
+    margin-top:10px;
+    margin-left:20px;
+}
+
+.nav-wrapper{
+    background-color: rgb(211, 204, 204);
+}
+
+#search{
+    border: solid 2px rgb(211, 204, 204);
+    border-radius: 15px;
+    margin-left:10px;
+    width:95%;
+}
+
+#artist-keyword{
+    margin-left:10px;
+    margin-bottom:20px;
+    margin-top:20px;
+    font-weight:bold;
+}
