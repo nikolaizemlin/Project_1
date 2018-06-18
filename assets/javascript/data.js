@@ -18,6 +18,7 @@ var database = firebase.database();
 var name = "";
 var last = "";
 var email = "";
+var password = "";
 var zipcode = "";
 
 // Capture Button Click
@@ -28,12 +29,14 @@ $("#add-person").on("click", function (event) {
   name = $("#name-input").val().trim();
   last = $("#last-input").val().trim();
   email = $("#email-input").val().trim();
+  password = $("#password-input").val().trim();
   zipcode = $("#zipcode-input").val().trim();
   // Code for handling the push
   database.ref().push({
     name: name,
     email: email,
     last: last,
+    password: password,
     zipcode: zipcode,
     dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
@@ -42,6 +45,7 @@ $("#add-person").on("click", function (event) {
   $("#name-input").val("");
   $("#last-input").val("");
   $("#email-input").val("");
+  $("#password-input").val("");
   $("#zipcode-input").val("");
 });
 
