@@ -7,6 +7,9 @@
 </head>
 
 <body>
+    <div id="artistPhoto">
+        <!-- Photo will be placed here -->
+    </div>
     <div id="buttons">
         <button data-artist="Keith Urban">
             Keith Urban
@@ -29,6 +32,12 @@
                 method: "GET"
             }).then(function (response) {
                 console.log(response);
+
+                var pictureDiv = $("<img>");
+                //var artistPhotoURL = response._embedded.events[0]._embedded.attractions[0].image.url;
+                pictureDiv.attr("src", response._embedded.events[0]._embedded.attractions[0].image.url);
+
+                $("#artistPhoto").append(pictureDiv);
 
                 for (i = 0; i < 5; i++) {
                     console.log(response._embedded.events[i]);
