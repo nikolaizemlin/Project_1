@@ -24,10 +24,11 @@ body {
 }
 
 
+
 h1{
     color:  black;
     font-size:30px;
-    margin-left:20px;
+    margin-left:25px;
     margin-top:20px;
 }
 
@@ -35,10 +36,27 @@ h2{
     font-size:30px;
     margin-top:10px;
     margin-left:20px;
+
 }
 
 .nav-wrapper{
     background-color: rgb(211, 204, 204);
+}
+
+/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+/* selected link */
+a:active {
+    color: rgb(30, 117, 103);
 }
 
 #search{
@@ -53,4 +71,8 @@ h2{
     margin-bottom:20px;
     margin-top:20px;
     font-weight:bold;
+}
+
+.row{
+    border: solid 2px rgb(211, 204, 204);
 }
