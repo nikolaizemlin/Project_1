@@ -50,6 +50,8 @@ $("#add-person").on("click", function (event) {
   $("#zipcode-input").val("");
 });
 
+<<<<<<< HEAD
+=======
 var frmvalidator = new Validator("mainform");
 frmvalidator.addValidation("name","req","Please enter your First Name");
 frmvalidator.addValidation("name","maxlen=20",
@@ -69,6 +71,7 @@ frmvalidator.addValidation("password","maxlen=50");
 frmvalidator.addValidation("password","neelmnt=name",
 "The password should not be same as username");
 
+>>>>>>> c0852059e055e3f376855950abbace6e72cf9b0a
 
 
 
