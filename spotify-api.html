@@ -24,6 +24,8 @@
 
             var artistID = $(this).attr("data-song");
             var queryURL = "https://api.spotify.com/v1/artists/" + artistID + "/top-tracks";
+            
+            // Consider this link for a differnt API https://developer.spotify.com/documentation/web-playback-sdk/quick-start/
 
             $.ajax({
                 url: queryURL,
