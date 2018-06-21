@@ -9,6 +9,7 @@
     <!-- Linking css files -->
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/validation.css"> -->
     <!-- Bootstrap CDN CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
@@ -18,8 +19,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
     <!-- moment.js -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <!-- javaScript Link -->
-    <script type="text/javascript" src="assets/javascript/data.js"></script>
+
 
     <title>Stomping luck bricks</title>
 </head>
@@ -33,26 +33,65 @@
             width: 100%;
         }
     </style>
-    <!-- Login form -->
+    <!-- Login form
+    <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email2" type="email" class="validate" required="" aria-required="true">
+              <label for="email2">Email</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="Password" name="Password" type="password" class="validate" required="" aria-required="true">
+              <label for="Password">Password</label>
+            </div>
+            <div class="input-field col s12"> -->
+    <!-- <select required="" aria-required="true">
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+      </select> -->
+    <!-- <label>Materialize Select</label>
+            </div>
+            <div class="input-field col s12">
+              <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div> -->
     <div class="loginform">
         <h3>Already a member</h3>
         <form role="form">
             <div class="form-group">
                 <label for="email-input">Email</label>
-                <input class="form-control" id="email-input" type="email">
+                <input class="email" id="email-input" type="email" required="" aria-required="true">
+                <span class="error" aria-live="polite"></span><br>
                 <label for="password-input">Password Name</label>
-                <input class="form-control" id="password-input" type="text">
+                <input class="password" id="password-input" type="Password" class="validate" required="" aria-required="true">
             </div>
             <a class="btn btn-default" id="login" type="submit" href="second.html">Login</a>
             <a class="btn btn-default" href="register.html" id="register" type="submit">Register</a>
         </form>
     </div>
 
+    <!-- <form novalidate>
+        <p>
+          <label for="mail">
+            <span>Please enter an email address:</span>
+            <input type="email" id="mail" name="mail">
+            <span class="error" aria-live="polite"></span>
+          </label>
+        </p>
+        <button>Submit</button>
+      </form> -->
 
-    </div>
 
 
-
+    <!-- javaScript Link -->
+    <script type="text/javascript" src="assets/javascript/data.js"></script>
+    <!-- javaScript Link -->
+    <!-- <script type="text/javascript" src="assets/javascript/validation.js"></script> -->
 </body>
 
 </html>
