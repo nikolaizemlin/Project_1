@@ -1,6 +1,6 @@
 /* General Elements*/
 body {
-    
+    background-color:rgb(238, 238, 240);
     width: 100%
     
 }
@@ -24,7 +24,6 @@ body {
 }
 
 
-
 h1{
     color:  black;
     font-size:30px;
@@ -33,19 +32,25 @@ h1{
 }
 
 h2{
-    font-size:30px;
-    margin-top:10px;
-    margin-left:20px;
+    font-size:20px;    
+    color:white;
+    letter-spacing: 0.25em;  
+    font-family: Impact, Charcoal, sans-serif;
+    margin-top:5px;
+}
 
+h3{
+    font-size:20px;
+  
 }
 
 .nav-wrapper{
-    background-color: rgb(211, 204, 204);
+    background-color: rgb(43, 42, 42);
 }
 
 /* unvisited link */
 a:link {
-    color: white;
+    color: blue;
 }
 
 /* mouse over link */
@@ -77,6 +82,36 @@ a:active {
     border: solid 2px rgb(211, 204, 204);
 }
 
+
+.item{
+    border: solid 2px rgb(211, 204, 204);
+	padding: 10px;
+    border-radius: 15px;
+}
+
+#artist-name{
+    font-size: 30px;
+    text-align:center;
+    text-transform: capitalize; 
+    letter-spacing: 0.25em;  
+    font-family: Impact, Charcoal, sans-serif;
+
+}
+
+.card-body{
+    background-color:rgb(248, 247, 247);
+}
+
+
+nav{
+    height:50px;
+}
+
+p{
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    line-height: 1.2;
+}
+=======
 svg.intro {
     /* background: linear-gradient(135deg, #d40606, #5f110e); */
     max-width: 55%;
@@ -141,3 +176,4 @@ svg.intro {
       stroke-dashoffset: 0;
     }
   }
+
