@@ -27,7 +27,7 @@
     <!-- Linking css files -->
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
+  
 
     <title>Stomping luck bricks</title>
 </head>
@@ -38,14 +38,15 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">
                 <h2>
-                    <img src="assets/images/camera.png" alt="Smiley face" height="42" width="42">
-                    <div style="float:right; margin-top: 10px; margin-left:10px;" onclick="location.href='second.html';">&nbsp; Myconcerts
+                  <!-- <img src="assets/images/camera.png" alt="Smiley face" height="42" width="42"> -->
+                    <div style="float:right; margin-top: 10px; margin-left:10px; color:white;" onclick="location.href='second.html';">&nbsp; 
+                    My Concerts
                     </div>
                 </h2>
             </a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li>
-                    <a href="main.html"> My Shows </a>
+                    <a href="main.html"> Search </a>
                 </li>
                 <li>
                     <a href="second.html">Logout</a>
@@ -62,7 +63,7 @@
               <div class="card">
                 <div class="card-header">
                   <strong>
-                    <i class="fa fa-list-alt"></i> Search an Artist</strong>
+                    <i class="fa fa-list-alt"></i> <h3>Search an Artist </h3></strong>
                 </div>
                 <div class="card-body">
       
@@ -96,7 +97,7 @@
             <br>
 
             <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
-            <div class="card">
+            <div style= "width:50%;"class="card">
 
                 <!-- Panel Heading for the retrieved articles box -->
                 <div class="card-header">
@@ -156,12 +157,15 @@
                 for (i = 0; i < 5; i++) {
                     console.log(response._embedded.events[i]);
                     var eventDiv = $("<div class='item'>");
+                    //create var for eventTitle
+                    var eventTitle = response._embedded.events[i].name;
                     var eventName = response._embedded.events[i]._embedded.venue[0].name;
                     var eventDate = response._embedded.events[i].dates.displayOptions.range.localEndDate;
                     var address = response._embedded.events[i]._embedded.venue[0].address.line2;
                     var eventUrl = response._embedded.events[i].eventUrl;
                     console.log(eventUrl);
-
+                    
+                    var eventTitleText = $("<h3>").text(eventTitle);
                     var eventNameText = $("<p>").text(eventName);
                     var eventDateText = $("<p>").text(eventDate);
                     var addressText = $("<p>").text(address);
@@ -171,13 +175,14 @@
                         text: "click here for tickets"
                     });
                 
-                    eventDiv.prepend(addressText);
-                    eventDiv.prepend(eventDateText);
-                    eventDiv.prepend(eventNameText);
                     eventDiv.prepend(newLink);
+                    eventDiv.prepend(eventDateText);
+                    eventDiv.prepend(addressText);
+                    eventDiv.prepend(eventNameText);
+                    eventDiv.prepend(eventTitleText);
                     $("#article-section").append(eventDiv);
                     $("#article-section").append("<br>");
-                    console.log(linkVar)
+                    console.log(newLink);
                 };
             });
         });
