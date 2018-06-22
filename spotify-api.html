@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Spotify API Test</title>
+</head>
+
+<body>
+    <div id="song-button">
+        <!-- long number is artist ID -->
+        <button data-song="4YLtscXsxbVgi031ovDDdh">
+                4YLtscXsxbVgi031ovDDdh
+                client ID = f2e2d50aac134850a09128c2646b8c0a
+        </button>
+    </div>
+
+    <div id="songs-appear-here">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("button").on("click", function () {
+
+            var artistID = $(this).attr("data-song");
+            var queryURL = "https://api.spotify.com/v1/artists/" + artistID + "/top-tracks";
+            
+            // Consider this link for a differnt API https://developer.spotify.com/documentation/web-playback-sdk/quick-start/
+
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+
+            });
+        });
+
+    </script>
+</body>
+
+</html>
