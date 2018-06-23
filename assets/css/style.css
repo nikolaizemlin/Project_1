@@ -1,6 +1,6 @@
 /* General Elements*/
 body {
-    background-color:rgb(241, 241, 245);
+    background-color:rgb(238, 237, 237);
     width: 100%
     
 }
@@ -18,7 +18,7 @@ body {
     width: 90%;
     margin-top: 10%;
     margin-left: 5%;
-    border: solid 3.5px black;
+    border: solid 2px rgb(185, 185, 185);
     padding: 10px;
     padding-left: 780px;
     border-radius: 15px;
@@ -117,7 +117,7 @@ p{
     
 }
 
-#run-search, #clear-all{
+#run-search, #clear-all, #add-person, #log-in{
     background-color:rgb(226, 195, 19);
 }
 
@@ -148,7 +148,7 @@ svg.intro {
   svg.intro.go .text-stroke {
     fill: none;
     stroke: #0a0a02;
-    stroke-width: 2.8px;
+    stroke-width: 2px;
     stroke-dashoffset: -900;
     stroke-dasharray: 900;
     stroke-linecap: butt;
@@ -165,7 +165,7 @@ svg.intro {
             animation-delay: .9s;
   }
   svg.intro.go .text-stroke-2 {
-    stroke:rgb(226, 195, 19);
+    stroke:rgb(248, 217, 41);
     -webkit-animation-delay: 1.2s;
             animation-delay: 1.2s;
   }
@@ -190,3 +190,11 @@ svg.intro {
     }
   }
 
+ #spotify{
+    text-align:center;
+    margin-top:25px;
+ }
+
+#footer-row{
+    background-color: rgb(247, 246, 245);
+}
