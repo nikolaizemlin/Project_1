@@ -1,6 +1,6 @@
 /* General Elements*/
 body {
-    background-color:rgb(238, 238, 240);
+    background-color:rgb(241, 241, 245);
     width: 100%
     
 }
@@ -41,6 +41,10 @@ h2{
 
 h3{
     font-size:20px;
+}
+h4{
+    font-size:20px;
+    color:rgb(226, 195, 19);
   
 }
 
@@ -110,6 +114,18 @@ nav{
 p{
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     line-height: 1.2;
+<<<<<<< HEAD
+    
+}
+
+#run-search, #clear-all{
+    background-color:rgb(226, 195, 19);
+}
+
+#article-section{
+    text-align:center;
+}
+=======
 }
 =======
 svg.intro {
@@ -176,4 +192,5 @@ svg.intro {
       stroke-dashoffset: 0;
     }
   }
+>>>>>>> 3a41a82d25186e6d250cc6100afd61cf4e9b30fb
 
