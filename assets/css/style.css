@@ -6,11 +6,12 @@ body {
 }
 .loginform {
     background-color: white;
-    width: 34%;
-    margin-top: 16%;
-    margin-left: 60%;
+    width: 90%;
+    margin-top: 15%;
+    margin-left: 5%;
     border: solid 2px black;
-	padding: 10px;
+    padding: 12px;
+    padding-left: 780px;
     border-radius: 15px;
 }
 .mainform {
