@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="assets/images/camera.png">
+    <link rel="icon" href="assets/images/concert.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -154,7 +154,8 @@
             event.preventDefault();
             //change this to capture user entry in search
             var artist = $("#search-term").val().trim();
-            $("#artist-name").append(artist);
+            // $("#artist-name").append(artist);
+            $("#artist-name").text("Upcoming Shows");
             //var artist = $(this).attr("data-artist");
             var queryURL = "http://app.ticketmaster.com/discovery/v1/events.json?keyword=" + artist + "&apikey=GEqhJFCV9Y6TonOIwSahrRaPtQ3VnFGK&callback=myFunction";
 
@@ -165,46 +166,55 @@
             }).then(function (response) {
                 console.log(response);
 
-                for (i = 0; i < 5; i++) {
-                    console.log(response._embedded.events[i]);
+                if (response.page.totalElements !== 0) {
+
+                    for (i = 0; i < 5; i++) {
+
+                        var eventDiv = $("<div class='item'>");
+                        //create var for eventTitle
+                        var eventTitle = response._embedded.events[i].name;
+                        var eventName = response._embedded.events[i]._embedded.venue[0].name;
+                        var eventDate = response._embedded.events[i].dates.displayOptions.range.localEndDate;
+                        var address = response._embedded.events[i]._embedded.venue[0].address.line2;
+                        var eventUrl = response._embedded.events[i].eventUrl;
+
+
+                        var eventTitleText = $("<h4>").text(eventTitle);
+                        var eventNameText = $("<p>").text(eventName);
+                        var eventDateText = $("<p>").text(eventDate);
+                        var addressText = $("<p>").text(address);
+                        var newLink = $("<a />", {
+                            name: "link",
+                            href: eventUrl,
+                            text: "click here for tickets"
+                        });
+
+                        eventDiv.prepend(newLink);
+                        eventDiv.prepend(eventDateText);
+                        eventDiv.prepend(addressText);
+                        eventDiv.prepend(eventNameText);
+                        eventDiv.prepend(eventTitleText);
+                        $("#article-section").prepend(eventDiv);
+                        $("#article-section").append("<br>");
+                      
+
+                    }
+                } else{
                     var eventDiv = $("<div class='item'>");
-                    //create var for eventTitle
-                    var eventTitle = response._embedded.events[i].name;
-                    var eventName = response._embedded.events[i]._embedded.venue[0].name;
-                    var eventDate = response._embedded.events[i].dates.displayOptions.range.localEndDate;
-                    var address = response._embedded.events[i]._embedded.venue[0].address.line2;
-                    var eventUrl = response._embedded.events[i].eventUrl;
-                    console.log(eventUrl);
+                    var artistName = $("<p>").text(artist);
+                    var noShows = $("<p>").text(" has no upcoming shows");
+                    eventDiv.append(artistName);
+                    eventDiv.append(noShows);
+                    $("#article-section").prepend(eventDiv);
+                   
+                }
 
-                    var eventTitleText = $("<h4>").text(eventTitle);
-                    var eventNameText = $("<p>").text(eventName);
-                    var eventDateText = $("<p>").text(eventDate);
-                    var addressText = $("<p>").text(address);
-                    var newLink = $("<a />", {
-                        name: "link",
-                        href: eventUrl,
-                        text: "click here for tickets"
-                    });
-
-                    eventDiv.prepend(newLink);
-                    eventDiv.prepend(eventDateText);
-                    eventDiv.prepend(addressText);
-                    eventDiv.prepend(eventNameText);
-                    eventDiv.prepend(eventTitleText);
-                    $("#article-section").append(eventDiv);
-                    $("#article-section").append("<br>");
-                    console.log(newLink);
-
-                  
-                    if ($('#article-section p').length) {
-                      //  $("#article-section").text("Sorry, there are no upcoming shows");
-
-                };
-
-                
-            };
+            });
         });
-        });
+
+
+//make new searches appear first
+//figure out why some links dont show up- if an artist doesnt have a link then dont show it
 
 
 
