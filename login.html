@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="assets/images/camera.png">
+    <link rel="icon" href="assets/images/concert.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Linking css files -->
@@ -22,37 +22,46 @@
 
     <title>Stomping luck bricks</title>
 </head>
-
-<!-- background image -->
-
 <body>
+    <!-- Background gradient -->
     <style>
         body {
-            background-image: url("http://www.exitwell.com/2017/wp-content/uploads/2015/07/style-dance-desktop-stage-lighting-crowd-audience-hand-emotions-theme-mood-27311011.jpg");
-            width: 100%;
-        }
+    background: radial-gradient(rgb(182, 18, 18), rgb(87, 51, 51));  
+        }  
     </style>
-
     <!-- Registration Form -->
-    <div class="mainform">
-        <h3>Fill this out below to create an account.</h3>
+    <div class="loginform">
+        <h3>Log in</h3>
         <form role="form">
             <div class="form-group">
-                <label for="name-input">First Name</label>
-                <input class="form-control" id="name-input" type="text" required>
-                <label for="last-input">Last Name</label>
-                <input class="form-control" id="last-input" type="text">
                 <label for="email-input">Email</label>
                 <input type="email" name="email" class="form-control" id="email-input" required>
                 <label for="password-input">Password</label>
                 <input class="form-control" id="password-input" type="psw" required>
-               
-                <label for="zipcode-input">Zip Code</label>
-                <input class="form-control" id="zipcode-input" type="text">
             </div>
-            <button onclick="location.href='second.html';" class="btn btn-default" id="add-person" type="submit">Submit</button>
+            <button onclick="location.href='second.html';" class="btn btn-default" id="log-in" type="submit">Login</button>
         </form>
     </div>
+
+    <svg class="intro" viewbox="0 0 200 86">
+            <text text-anchor="start" x="10" y="30" class="text text-stroke" clip-path="url(#text1)">Stomping</text>
+            <text text-anchor="start" x="10" y="50" class="text text-stroke" clip-path="url(#text2)">Luck</text>
+            <text text-anchor="start" x="10" y="70" class="text text-stroke" clip-path="url(#text3)">Bricks</text>
+            <text text-anchor="start" x="10" y="30" class="text text-stroke text-stroke-2" clip-path="url(#text1)">Stomping</text>
+            <text text-anchor="start" x="10" y="50" class="text text-stroke text-stroke-2" clip-path="url(#text2)">Luck</text>
+            <text text-anchor="start" x="10" y="70" class="text text-stroke text-stroke-2" clip-path="url(#text3)">Bricks</text>
+            <defs>
+              <clipPath id="text1">
+                <text text-anchor="start" x="10" y="30" class="text">Stomping</text>
+              </clipPath>
+              <clipPath id="text2">
+                <text text-anchor="start" x="10" y="50" class="text">Luck</text>
+              </clipPath>
+              <clipPath id="text3">
+                <text text-anchor="start" x="10" y="70" class="text">Bricks</text>
+              </clipPath>
+            </defs>
+          </svg>
 <!-- javaScript Link -->
 <script type="text/javascript" src="assets/javascript/data.js"></script>
 </body>
