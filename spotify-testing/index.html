@@ -10,11 +10,13 @@
     <h2>Open your console log:
         <code>View > Developer > JavaScript Console</code>
     </h2>
+    <iframe src="https://open.spotify.com/embed/artist/3iTsJGG39nMg9YiolUgLMQ" width="300" height="380" frameborder="0" allowtransparency="true"
+        allow="encrypted-media"></iframe>
 
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script>
         window.onSpotifyWebPlaybackSDKReady = () => {
-            const token = 'BQDinMAUyT9myWUXSZrc0G13_nvv14DAVPmgl175JoGUestF2TarIOmtyUZJoWs9mFHvHERFkzrCM3uRFTJW35X6UqObQL0xdWGbU4WWwAD1_U79-ol3GL4BhUuP45W8tRSIXYFqgfxtzp720h3GNYw2uq7VtvKAJLUD';
+            const token = 'BQAmCrnTqU-p62eq8XncNIH_SDwJL3JKSw_n8pshHVvSXJmCuLNJo6a_D2EPEX5P2vTGbJpy2YPw6dIfcVzU8PkowLxA1owQKCcx3kvp4DqTJXYH8gG-4LBlItiV1GXa8Rgn0G5OzpAezHZvJNGWfdXok1y89KscHzg1';
             const player = new Spotify.Player({
                 name: 'Web Playback SDK Quick Start Player',
                 getOAuthToken: cb => { cb(token); }
@@ -39,28 +41,39 @@
                 console.log('Device ID has gone offline', device_id);
             });
 
-            // Gets curent state
-            player.getCurrentState().then(state => {
-                if (!state) {
-                    console.error('User is not playing music through the Web Playback SDK');
-                    return;
-                }
-
-                let {
-                    current_track,
-                    next_tracks: [next_track]
-                } = state.track_window;
-
-                console.log('Currently Playing', current_track);
-                console.log('Playing Next', next_track);
-            });
-
             // Connect to the player!
             player.connect().then(success => {
                 if (success) {
                     console.log('The Web Playback SDK successfully connected to Spotify!');
                 }
             })
+
+            // Below should control music playing on page
+            const play = ({
+                spotify_uri,
+                playerInstance: {
+                    _options: {
+                        getOAuthToken,
+                        id
+                    }
+                }
+            }) => {
+                getOAuthToken(access_token => {
+                    fetch(`https://api.spotify.com/v1/me/player/play?device_id=${id}`, {
+                        method: 'PUT',
+                        body: JSON.stringify({ uris: [spotify_uri] }),
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${access_token}`
+                        },
+                    });
+                });
+            };
+
+            play({
+                playerInstance: new Spotify.Player({ name: "..." }),
+                spotify_uri: 'spotify:track:7xGfFoTpQ2E7fRF5lN10tr',
+            });
         };
     </script>
 </body>
