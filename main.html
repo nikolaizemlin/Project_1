@@ -66,7 +66,7 @@
 
 
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col s12">
             <br>
             <!-- First panel is for handling the search parameters -->
             <div class="card">
@@ -99,38 +99,37 @@
         </div>
     </div>
 
-
-
-
-
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col s10">
             <br>
-
             <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
-            <div style="width:50%;" class="card">
+            <div style="width:100%;" class="card">
 
                 <!-- Panel Heading for the retrieved articles box -->
                 <div class="card-header">
                     <strong>
                         <i class="fa fa-table"></i>
                         <div id="artist-name">
-
                         </div>
                     </strong>
                 </div>
-
                 <!-- This main panel will hold each of the resulting articles -->
                 <div class="card-body" id="article-section">
                 </div>
             </div>
         </div>
+
+
+        <div id="spotify" class="col s2">
+            <iframe src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A0SBjLqgv3wzOb5LtvYz0zf" width="300" height="380" frameborder="0"
+                allowtransparency="true"></iframe>
+        </div>
+
     </div>
 
     <!-- Footer Region -->
-    <div class="row">
+    <div id="footer-row" class="row">
         <div class="col-sm-12">
-
             <!-- Line Break followed by closing -->
             <hr>
             <h5 class="text-center">
@@ -196,17 +195,17 @@
                         eventDiv.prepend(eventTitleText);
                         $("#article-section").prepend(eventDiv);
                         $("#article-section").append("<br>");
-                      
+
 
                     }
-                } else{
+                } else {
                     var eventDiv = $("<div class='item'>");
                     var artistName = $("<p>").text(artist);
                     var noShows = $("<p>").text(" has no upcoming shows");
                     eventDiv.append(artistName);
                     eventDiv.append(noShows);
                     $("#article-section").prepend(eventDiv);
-                   
+
                 }
 
             });
