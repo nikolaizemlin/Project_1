@@ -9,20 +9,20 @@ body {
     width: 34%;
     margin-top: 16%;
     margin-left: 60%;
-    border: solid 2px rgb(228, 20, 20);
+    border: solid 2px black;
 	padding: 10px;
     border-radius: 15px;
 }
 .mainform {
 	background-color: white;
-    width: 34%;
+    width: 90%;
     margin-top: 10%;
-    margin-left: 60%;
-    border: solid 2px rgb(228, 20, 20);
-	padding: 10px;
+    margin-left: 5%;
+    border: solid 3.5px black;
+    padding: 10px;
+    padding-left: 780px;
     border-radius: 15px;
 }
-
 
 h1{
     color:  black;
@@ -114,7 +114,6 @@ nav{
 p{
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     line-height: 1.2;
-<<<<<<< HEAD
     
 }
 
@@ -125,9 +124,7 @@ p{
 #article-section{
     text-align:center;
 }
-=======
-}
-=======
+
 svg.intro {
     /* background: linear-gradient(135deg, #d40606, #5f110e); */
     max-width: 55%;
@@ -143,8 +140,8 @@ svg.intro {
     display: none;
   }
   svg.intro.go .text {
-    font-family: Arial, sans-serif;
-    font-size: 20px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 25px;
     text-transform: uppercase;
     display: block;
   }
@@ -168,7 +165,7 @@ svg.intro {
             animation-delay: .9s;
   }
   svg.intro.go .text-stroke-2 {
-    stroke: #dbce12;
+    stroke:rgb(226, 195, 19);
     -webkit-animation-delay: 1.2s;
             animation-delay: 1.2s;
   }
@@ -192,5 +189,4 @@ svg.intro {
       stroke-dashoffset: 0;
     }
   }
->>>>>>> 3a41a82d25186e6d250cc6100afd61cf4e9b30fb
 
