@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Spotify Web Playback SDK Quick Start Tutorial</title>
+</head>
+
+<body>
+    <h1>Spotify Web Playback SDK Quick Start Tutorial</h1>
+    <h2>Open your console log:
+        <code>View > Developer > JavaScript Console</code>
+    </h2>
+
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script>
+        window.onSpotifyWebPlaybackSDKReady = () => {
+            const token = 'BQDinMAUyT9myWUXSZrc0G13_nvv14DAVPmgl175JoGUestF2TarIOmtyUZJoWs9mFHvHERFkzrCM3uRFTJW35X6UqObQL0xdWGbU4WWwAD1_U79-ol3GL4BhUuP45W8tRSIXYFqgfxtzp720h3GNYw2uq7VtvKAJLUD';
+            const player = new Spotify.Player({
+                name: 'Web Playback SDK Quick Start Player',
+                getOAuthToken: cb => { cb(token); }
+            });
+
+            // Error handling
+            player.addListener('initialization_error', ({ message }) => { console.error(message); });
+            player.addListener('authentication_error', ({ message }) => { console.error(message); });
+            player.addListener('account_error', ({ message }) => { console.error(message); });
+            player.addListener('playback_error', ({ message }) => { console.error(message); });
+
+            // Playback status updates
+            player.addListener('player_state_changed', state => { console.log(state); });
+
+            // Ready
+            player.addListener('ready', ({ device_id }) => {
+                console.log('Ready with Device ID', device_id);
+            });
+
+            // Not Ready
+            player.addListener('not_ready', ({ device_id }) => {
+                console.log('Device ID has gone offline', device_id);
+            });
+
+            // Gets curent state
+            player.getCurrentState().then(state => {
+                if (!state) {
+                    console.error('User is not playing music through the Web Playback SDK');
+                    return;
+                }
+
+                let {
+                    current_track,
+                    next_tracks: [next_track]
+                } = state.track_window;
+
+                console.log('Currently Playing', current_track);
+                console.log('Playing Next', next_track);
+            });
+
+            // Connect to the player!
+            player.connect().then(success => {
+                if (success) {
+                    console.log('The Web Playback SDK successfully connected to Spotify!');
+                }
+            })
+        };
+    </script>
+</body>
+
+</html>

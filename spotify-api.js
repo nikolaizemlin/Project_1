@@ -30,6 +30,9 @@ request.post(authOptions, function(error, response, body) {
     console.log(options);
     request.get(options, function(error, response, body) {
       console.log(body);
+
+      // wrap in get request 
+      // res send body
     });
   }
 });
