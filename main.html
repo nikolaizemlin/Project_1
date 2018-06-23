@@ -27,7 +27,7 @@
     <!-- Linking css files -->
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  
+
 
     <title>Stomping luck bricks</title>
 </head>
@@ -38,55 +38,66 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">
                 <h2>
-                  <!-- <img src="assets/images/camera.png" alt="Smiley face" height="42" width="42"> -->
-                    <div style="float:right; margin-top: 10px; margin-left:10px; color:white;" onclick="location.href='second.html';">&nbsp; 
-                    My Concerts
+                    <!-- <img src="assets/images/camera.png" alt="Smiley face" height="42" width="42"> -->
+                    <div style="float:right; margin-top: 10px; margin-left:10px; color:white;" onclick="location.href='second.html';">&nbsp; My Concerts
                     </div>
                 </h2>
             </a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <!--    <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li>
                     <a href="main.html"> Search </a>
                 </li>
                 <li>
                     <a href="second.html">Logout</a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </nav>
 
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+                <div id="cover-photo">
+                    <img style="width:100%;" src="assets/images/covers1.jpg" alt="album-covers">
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="row">
-            <div class="col-sm-12">
-              <br>
-              <!-- First panel is for handling the search parameters -->
-              <div class="card">
+        <div class="col-sm-12">
+            <br>
+            <!-- First panel is for handling the search parameters -->
+            <div class="card">
                 <div class="card-header">
-                  <strong>
-                    <i class="fa fa-list-alt"></i> <h3>Search an Artist </h3></strong>
+                    <strong>
+                        <i class="fa fa-list-alt"></i>
+                        <h3>Search an artist for upcoming shows</h3>
+                    </strong>
                 </div>
                 <div class="card-body">
-      
-                  <!-- Here we create an HTML Form for handling the inputs-->
-                  <form role="form">
-      
-                    <!-- Here we create the text box for capturing the search term-->
-                    <div class="form-group">
-                      <label for="search"></label>
-                      <input type="text" class="form-control" id="search-term">
-                    </div>
-                         
-                    <!-- Here we have our final submit button -->
-                    <button type="submit" class="btn btn-default" id="run-search">
-                      <i class="fa fa-search"></i> Search</button>
-                    <button class="btn btn-default" id="clear-all">
-                      <i class="fa fa-trash"></i> Clear Results</button>
-      
-                  </form>
+
+                    <!-- Here we create an HTML Form for handling the inputs-->
+                    <form role="form">
+
+                        <!-- Here we create the text box for capturing the search term-->
+                        <div class="form-group">
+                            <label for="search"></label>
+                            <input type="text" class="form-control" id="search-term">
+                        </div>
+
+                        <!-- Here we have our final submit button -->
+                        <button type="submit" class="btn btn-default" id="run-search">
+                            <i class="fa fa-search"></i> Search</button>
+                        <button class="btn btn-default" id="clear-all">
+                            <i class="fa fa-trash"></i> Clear Results</button>
+
+                    </form>
                 </div>
-              </div>
             </div>
-          </div>
+        </div>
+    </div>
 
 
 
@@ -97,14 +108,14 @@
             <br>
 
             <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
-            <div style= "width:50%;"class="card">
+            <div style="width:50%;" class="card">
 
                 <!-- Panel Heading for the retrieved articles box -->
                 <div class="card-header">
                     <strong>
                         <i class="fa fa-table"></i>
                         <div id="artist-name">
-                            
+
                         </div>
                     </strong>
                 </div>
@@ -138,8 +149,8 @@
     <script type="text/javascript">
 
         //change this to start on search click
-        $("#run-search").on("click", function(event) {
-        //$("button").on("click", function () {
+        $("#run-search").on("click", function (event) {
+            //$("button").on("click", function () {
             event.preventDefault();
             //change this to capture user entry in search
             var artist = $("#search-term").val().trim();
@@ -164,8 +175,8 @@
                     var address = response._embedded.events[i]._embedded.venue[0].address.line2;
                     var eventUrl = response._embedded.events[i].eventUrl;
                     console.log(eventUrl);
-                    
-                    var eventTitleText = $("<h3>").text(eventTitle);
+
+                    var eventTitleText = $("<h4>").text(eventTitle);
                     var eventNameText = $("<p>").text(eventName);
                     var eventDateText = $("<p>").text(eventDate);
                     var addressText = $("<p>").text(address);
@@ -174,7 +185,7 @@
                         href: eventUrl,
                         text: "click here for tickets"
                     });
-                
+
                     eventDiv.prepend(newLink);
                     eventDiv.prepend(eventDateText);
                     eventDiv.prepend(addressText);
@@ -183,8 +194,16 @@
                     $("#article-section").append(eventDiv);
                     $("#article-section").append("<br>");
                     console.log(newLink);
+
+                  
+                    if ($('#article-section p').length) {
+                      //  $("#article-section").text("Sorry, there are no upcoming shows");
+
                 };
-            });
+
+                
+            };
+        });
         });
 
 
