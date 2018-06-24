@@ -14,31 +14,31 @@
 
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script>
-        window.onSpotifyWebPlaybackSDKReady = () => {
-            var token = "BQDvwOBAk_O4tvJyjR_BXm5P4_yJfW86pcaaQ_jN-ShoaDDEmJnCstVCcg53g3kVH1M9abg_HF9vKMHkw7tl8-AZW49OwZ0-nN2GL8GQj5hspdXdnicqHSCF6a9dwzKSpbzJ0kf8jjkgLAoZgrZ17HqRZEvkKud_mw";
 
-            var musicUrl = "https://api.spotify.com/v1/search?query=queen&limit=1&type=artist"
-            $.ajax({
-                url: musicUrl,
-                method: 'GET',
-                headers: {
-                    'Authorization': 'Bearer ' + token
-                },
-                success: function (response) {
-                    console.log(response);
-                    //console.log(response.artists.items[0].id);
+        var token = "BQDvwOBAk_O4tvJyjR_BXm5P4_yJfW86pcaaQ_jN-ShoaDDEmJnCstVCcg53g3kVH1M9abg_HF9vKMHkw7tl8-AZW49OwZ0-nN2GL8GQj5hspdXdnicqHSCF6a9dwzKSpbzJ0kf8jjkgLAoZgrZ17HqRZEvkKud_mw";
 
-                    var artistId = response.artists.items[0].id;
-                    var source = "https://open.spotify.com/embed?uri=spotify:artist:" + artistId;
+        var musicUrl = "https://api.spotify.com/v1/search?query=queen&limit=1&type=artist"
+        $.ajax({
+            url: musicUrl,
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            },
+            success: function (response) {
+                console.log(response);
+                //console.log(response.artists.items[0].id);
 
-                    $("#spotify-iframe").attr("src", source);
+                var artistId = response.artists.items[0].id;
+                var source = "https://open.spotify.com/embed?uri=spotify:artist:" + artistId;
 
-                },
-                error: function () {
-                    console.log("Error with ajax GET");
-                }
-            });
-        };
+                $("#spotify-iframe").attr("src", source);
+
+            },
+            error: function () {
+                console.log("Error with ajax GET");
+            }
+        });
+
     </script>
 </body>
 
