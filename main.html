@@ -218,7 +218,7 @@
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script>
         var authorize = "https://accounts.spotify.com/authorize/?";
-        window.location.replace = musicUrl + "client_id=f2e2d50aac134850a09128c2646b8c0a&response_type=token&redirect_uri=https://danthamaz.github.io/spotifyTest/";
+        window.location.replace = authorize + "client_id=f2e2d50aac134850a09128c2646b8c0a&response_type=token&redirect_uri=https://danthamaz.github.io/spotifyTest/";
         window.onSpotifyWebPlaybackSDKReady = () => {
             $("#run-search").on("click", function (event) {
                 event.preventDefault();
