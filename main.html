@@ -39,15 +39,15 @@
             <a href="#" class="brand-logo">
                 <h2>
                     <!-- <img src="assets/images/camera.png" alt="Smiley face" height="42" width="42"> -->
-                    <div style="float:right; margin-top: 10px; margin-left:10px; color:white;" onclick="location.href='second.html';">&nbsp; My Concerts
+                    <div style="float:right; margin-top: 10px; margin-left:10px; color:white;" onclick="location.href='main.html';">&nbsp; CSEARCH
                     </div>
                 </h2>
             </a>
-            <!--    <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li>
-                    <a href="main.html"> Search </a>
+                    <a href="index.html"> Log out </a>
                 </li>
-                <li>
+                <!--  <li>
                     <a href="second.html">Logout</a>
                 </li>
             </ul> -->
@@ -58,7 +58,7 @@
         <div class="col s12 m6">
             <div class="card blue-grey darken-1">
                 <div id="cover-photo">
-                    <img style="width:100%;" src="assets/images/covers1.jpg" alt="album-covers">
+                    <img style="width:100%;" src="assets/images/csearch2.png" alt="album-covers">
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@
                 <div class="card-header">
                     <strong>
                         <i class="fa fa-list-alt"></i>
-                        <h3>Search an artist for upcoming shows</h3>
+                        <h3>Search an artist for information on upcoming shows</h3>
                     </strong>
                 </div>
                 <div class="card-body">
@@ -121,7 +121,24 @@
 
         <!-- DIV for Spotify Player -->
         <div class="col s2">
-            <iframe id="spotify" src="" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+            <br>
+            <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
+            <div style="width:100%;" class="card">
+
+                <!-- Panel Heading for the retrieved articles box -->
+                <div class="card-header">
+                    <strong>
+                        <i class="fa fa-table"></i>
+                        <div id="spotify-title">
+                        </div>
+                    </strong>
+                </div>
+                <!-- This main panel will hold each of the resulting articles -->
+                <div class="card-body" id="songs-section">
+                    <iframe id="spotify" src="" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+                </div>
+            </div>
+
         </div>
 
     </div>
@@ -148,21 +165,26 @@
 
         //change this to start on search click
         $("#run-search").on("click", function (event) {
-            //$("button").on("click", function () {
+
             event.preventDefault();
-            //change this to capture user entry in search
+
+            //clear the div
+            // $( "#article-section" ).empty();
+
+            //captures user entry in search
             var artist = $("#search-term").val().trim();
-            // $("#artist-name").append(artist);
+
             $("#artist-name").text("Upcoming Shows");
-            //var artist = $(this).attr("data-artist");
+            $("#spotify-title").text("Listen on Spotify");
+
             var queryURL = "http://app.ticketmaster.com/discovery/v1/events.json?keyword=" + artist + "&apikey=GEqhJFCV9Y6TonOIwSahrRaPtQ3VnFGK&callback=myFunction";
 
-            //console.log($(this).attr("data-artist"));
+
             $.ajax({
                 url: queryURL,
                 method: "GET"
             }).then(function (response) {
-                console.log(response);
+
 
                 if (response.page.totalElements !== 0) {
 
@@ -174,8 +196,15 @@
                         var eventName = response._embedded.events[i]._embedded.venue[0].name;
                         var eventDate = response._embedded.events[i].dates.displayOptions.range.localEndDate;
                         var address = response._embedded.events[i]._embedded.venue[0].address.line2;
-                        var eventUrl = response._embedded.events[i].eventUrl;
+                        var eventUrl = response._embedded.events[i].eventUrl
+                        var secondUrl = (" www.ticketmaster.com");
+                        //if (response._embedded.events[i].eventUrl !== undefined){
+                        
 
+                       // } else{
+                       //     var eventUrl = $("<a />");
+                      //      $(eventUrl).prepend("www.ticketmaster.com");
+                      //  }
 
                         var eventTitleText = $("<h4>").text(eventTitle);
                         var eventNameText = $("<p>").text(eventName);
@@ -186,7 +215,15 @@
                             href: eventUrl,
                             text: "click here for tickets"
                         });
-
+                        
+                        var addressTM = $("<a />", {
+                            name: "link",
+                            href: secondUrl,
+                            text: "click here for ticket master"
+                        });
+                    
+                        
+                        eventDiv.prepend(addressTM);
                         eventDiv.prepend(newLink);
                         eventDiv.prepend(eventDateText);
                         eventDiv.prepend(addressText);
@@ -194,6 +231,7 @@
                         eventDiv.prepend(eventTitleText);
                         $("#article-section").prepend(eventDiv);
                         $("#article-section").append("<br>");
+
 
 
                     }
@@ -211,7 +249,6 @@
         });
 
 
-//make new searches appear first
 //figure out why some links dont show up- if an artist doesnt have a link then dont show it
 
     </script>
