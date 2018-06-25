@@ -150,6 +150,8 @@
         $("#run-search").on("click", function (event) {
             //$("button").on("click", function () {
             event.preventDefault();
+            // Empty source for spotify player
+            $("#spotify").attr("src", " ");
             //change this to capture user entry in search
             var artist = $("#search-term").val().trim();
             // $("#artist-name").append(artist);
@@ -226,22 +228,23 @@
                 var token = "";
 
                 var artist = $("#search-term").val().trim();
-                console.log("This is the artist:" + artist);
-                var musicUrl = "https://api.spotify.com/v1/search?query=" + artist + "&limit=1&type=artist";
+                console.log("This is the artist: " + artist);
+                var artistQuery = "https://api.spotify.com/v1/search?query=" + artist + "&limit=1&type=artist";
                 $.ajax({
-                    url: musicUrl,
+                    url: artistQuery,
                     method: 'GET',
                     headers: {
                         'Authorization': 'Bearer ' + token
                     },
                     success: function (response) {
-                        // console.log(response);
+                        console.log(response);
                         //console.log(response.artists.items[0].id);
 
                         var artistId = response.artists.items[0].id;
                         var source = "https://open.spotify.com/embed?uri=spotify:artist:" + artistId;
 
                         $("#spotify").attr("src", source);
+                        console.log(source);
 
                     },
                     error: function () {
