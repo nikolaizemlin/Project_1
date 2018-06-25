@@ -29,7 +29,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 
-    <title>Stomping luck bricks</title>
+    <title>Stomping Luck Bricks</title>
 </head>
 
 <body>
@@ -119,10 +119,9 @@
             </div>
         </div>
 
-
-        <div id="spotify" class="col s2">
-            <iframe src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A0SBjLqgv3wzOb5LtvYz0zf" width="300" height="380" frameborder="0"
-                allowtransparency="true"></iframe>
+        <!-- DIV for Spotify Player -->
+        <div class="col s2">
+            <iframe id="spotify" src="" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
         </div>
 
     </div>
@@ -215,12 +214,42 @@
 //make new searches appear first
 //figure out why some links dont show up- if an artist doesnt have a link then dont show it
 
+    </script>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script>
+        var authorize = "https://accounts.spotify.com/authorize/?";
+        window.location.replace = musicUrl + "client_id=f2e2d50aac134850a09128c2646b8c0a&response_type=token&redirect_uri=https://danthamaz.github.io/spotifyTest/";
+        window.onSpotifyWebPlaybackSDKReady = () => {
+            $("#run-search").on("click", function (event) {
+                event.preventDefault();
 
+                var token = "";
 
+                var artist = $("#search-term").val().trim();
+                console.log("This is the artist:" + artist);
+                var musicUrl = "https://api.spotify.com/v1/search?query=" + artist + "&limit=1&type=artist";
+                $.ajax({
+                    url: musicUrl,
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    success: function (response) {
+                        // console.log(response);
+                        //console.log(response.artists.items[0].id);
 
+                        var artistId = response.artists.items[0].id;
+                        var source = "https://open.spotify.com/embed?uri=spotify:artist:" + artistId;
 
+                        $("#spotify").attr("src", source);
 
-
+                    },
+                    error: function () {
+                        console.log("Error with ajax GET for Spotify");
+                    }
+                });
+            });
+        };
     </script>
 </body>
 

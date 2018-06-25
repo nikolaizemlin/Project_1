@@ -12,10 +12,12 @@
 
     <iframe id="spotify-iframe" src="" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>.
     <script>
         window.onSpotifyWebPlaybackSDKReady = () => {
-            var token = "BQDvwOBAk_O4tvJyjR_BXm5P4_yJfW86pcaaQ_jN-ShoaDDEmJnCstVCcg53g3kVH1M9abg_HF9vKMHkw7tl8-AZW49OwZ0-nN2GL8GQj5hspdXdnicqHSCF6a9dwzKSpbzJ0kf8jjkgLAoZgrZ17HqRZEvkKud_mw";
+            var musicUrl = "https://accounts.spotify.com/authorize/?"
+            window.location = musicUrl + "client_id=f2e2d50aac134850a09128c2646b8c0a&response_type=token&redirect_uri=https://egretsch.github.io/project1/"
+            var token = "";
 
             var musicUrl = "https://api.spotify.com/v1/search?query=queen&limit=1&type=artist"
             $.ajax({
@@ -39,7 +41,7 @@
                 }
             });
         };
+
     </script>
 </body>
-
 </html>
