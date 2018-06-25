@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Spotify Web Playback SDK Quick Start Tutorial</title>
+</head>
+
+<body>
+    <h1>Spotify Web Playback SDK Quick Start Tutorial</h1>
+    <h2>Open your console log:
+        <code>View > Developer > JavaScript Console</code>
+    </h2>
+
+
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script>
+        window.onSpotifyWebPlaybackSDKReady = () => {
+            var client_id = "f2e2d50aac134850a09128c2646b8c0a"; // Your client id
+            var client_secret = "5269bf9733e543a988f4917ccd4ed15a"; // Your secret
+
+            // your application requests authorization
+            var authOptions = {
+                url: "https://accounts.spotify.com/api/token",
+                headers: {
+                    Authorization:
+                        "Basic " + new Buffer(client_id + ":" + client_secret).toString("base64")
+                },
+                form: {
+                    grant_type: "client_credentials"
+                },
+                json: true
+            };
+
+            request.post(authOptions, function (error, response, body) {
+                if (!error && response.statusCode === 200) {
+                    // use the access token to access the Spotify Web API
+                    var token = body.access_token;
+                    var options = {
+                        url: "https://api.spotify.com/v1/users/jmperezperez",
+                        headers: {
+                            Authorization: "Bearer " + token
+                        },
+                        json: true
+                    };
+                    request.get(options, function (error, response, body) {
+                        console.log(body);
+                    });
+                }; 
+            });
+        };
+            </script>
+</body>
+
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="assets/images/concert.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <!-- Bootstrap CDN CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <!-- Materialize CDN CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!-- Jquery script link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Firebase link -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <!-- moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!-- Materialize Link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <!-- Linking css files -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+
+    <title>Stomping Luck Bricks</title>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">
+                <h2>
+                    <!-- <img src="assets/images/camera.png" alt="Smiley face" height="42" width="42"> -->
+                    <div style="float:right; margin-top: 10px; margin-left:10px; color:white;" onclick="location.href='second.html';">&nbsp; My Concerts
+                    </div>
+                </h2>
+            </a>
+            <!--    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <a href="main.html"> Search </a>
+                </li>
+                <li>
+                    <a href="second.html">Logout</a>
+                </li>
+            </ul> -->
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+                <div id="cover-photo">
+                    <img style="width:100%;" src="assets/images/covers1.jpg" alt="album-covers">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col s12">
+            <br>
+            <!-- First panel is for handling the search parameters -->
+            <div class="card">
+                <div class="card-header">
+                    <strong>
+                        <i class="fa fa-list-alt"></i>
+                        <h3>Search an artist for upcoming shows</h3>
+                    </strong>
+                </div>
+                <div class="card-body">
+
+                    <!-- Here we create an HTML Form for handling the inputs-->
+                    <form role="form">
+
+                        <!-- Here we create the text box for capturing the search term-->
+                        <div class="form-group">
+                            <label for="search"></label>
+                            <input type="text" class="form-control" id="search-term">
+                        </div>
+
+                        <!-- Here we have our final submit button -->
+                        <button type="submit" class="btn btn-default" id="run-search">
+                            <i class="fa fa-search"></i> Search</button>
+                        <button class="btn btn-default" id="clear-all">
+                            <i class="fa fa-trash"></i> Clear Results</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s10">
+            <br>
+            <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
+            <div style="width:100%;" class="card">
+
+                <!-- Panel Heading for the retrieved articles box -->
+                <div class="card-header">
+                    <strong>
+                        <i class="fa fa-table"></i>
+                        <div id="artist-name">
+                        </div>
+                    </strong>
+                </div>
+                <!-- This main panel will hold each of the resulting articles -->
+                <div class="card-body" id="article-section">
+                </div>
+            </div>
+        </div>
+
+        <!-- DIV for Spotify Player -->
+        <div class="col s2">
+            <iframe id="spotify" src="" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+        </div>
+
+    </div>
+
+    <!-- Footer Region -->
+    <div id="footer-row" class="row">
+        <div class="col-sm-12">
+            <!-- Line Break followed by closing -->
+            <hr>
+            <h5 class="text-center">
+                <small>Thanks for using Myconcerts
+                    <i class="fa fa-heart"></i>
+                </small>
+            </h5>
+
+        </div>
+    </div>
+
+
+    <!-- javaScript Link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript">
+
+        //change this to start on search click
+        $("#run-search").on("click", function (event) {
+            //$("button").on("click", function () {
+            event.preventDefault();
+            //change this to capture user entry in search
+            var artist = $("#search-term").val().trim();
+            // $("#artist-name").append(artist);
+            $("#artist-name").text("Upcoming Shows");
+            //var artist = $(this).attr("data-artist");
+            var queryURL = "http://app.ticketmaster.com/discovery/v1/events.json?keyword=" + artist + "&apikey=GEqhJFCV9Y6TonOIwSahrRaPtQ3VnFGK&callback=myFunction";
+
+            //console.log($(this).attr("data-artist"));
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+
+                if (response.page.totalElements !== 0) {
+
+                    for (i = 0; i < 5; i++) {
+
+                        var eventDiv = $("<div class='item'>");
+                        //create var for eventTitle
+                        var eventTitle = response._embedded.events[i].name;
+                        var eventName = response._embedded.events[i]._embedded.venue[0].name;
+                        var eventDate = response._embedded.events[i].dates.displayOptions.range.localEndDate;
+                        var address = response._embedded.events[i]._embedded.venue[0].address.line2;
+                        var eventUrl = response._embedded.events[i].eventUrl;
+
+
+                        var eventTitleText = $("<h4>").text(eventTitle);
+                        var eventNameText = $("<p>").text(eventName);
+                        var eventDateText = $("<p>").text(eventDate);
+                        var addressText = $("<p>").text(address);
+                        var newLink = $("<a />", {
+                            name: "link",
+                            href: eventUrl,
+                            text: "click here for tickets"
+                        });
+
+                        eventDiv.prepend(newLink);
+                        eventDiv.prepend(eventDateText);
+                        eventDiv.prepend(addressText);
+                        eventDiv.prepend(eventNameText);
+                        eventDiv.prepend(eventTitleText);
+                        $("#article-section").prepend(eventDiv);
+                        $("#article-section").append("<br>");
+
+
+                    }
+                } else {
+                    var eventDiv = $("<div class='item'>");
+                    var artistName = $("<p>").text(artist);
+                    var noShows = $("<p>").text(" has no upcoming shows");
+                    eventDiv.append(artistName);
+                    eventDiv.append(noShows);
+                    $("#article-section").prepend(eventDiv);
+
+                }
+
+            });
+        });
+
+
+//make new searches appear first
+//figure out why some links dont show up- if an artist doesnt have a link then dont show it
+
+    </script>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script>
+        var authorize = "https://accounts.spotify.com/authorize/?";
+        window.location.replace = authorize + "client_id=f2e2d50aac134850a09128c2646b8c0a&response_type=token&redirect_uri=https://danthamaz.github.io/spotifyTest/";
+        window.onSpotifyWebPlaybackSDKReady = () => {
+            $("#run-search").on("click", function (event) {
+                event.preventDefault();
+
+                var token = "";
+
+                var artist = $("#search-term").val().trim();
+                console.log("This is the artist:" + artist);
+                var musicUrl = "https://api.spotify.com/v1/search?query=" + artist + "&limit=1&type=artist";
+                $.ajax({
+                    url: musicUrl,
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    success: function (response) {
+                        // console.log(response);
+                        //console.log(response.artists.items[0].id);
+
+                        var artistId = response.artists.items[0].id;
+                        var source = "https://open.spotify.com/embed?uri=spotify:artist:" + artistId;
+
+                        $("#spotify").attr("src", source);
+
+                    },
+                    error: function () {
+                        console.log("Error with ajax GET for Spotify");
+                    }
+                });
+            });
+        };
+    </script>
+</body>
+
+</html>

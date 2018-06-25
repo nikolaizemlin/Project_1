@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="assets/images/camera.png">
+    <link rel="icon" href="assets/images/concert.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Linking css files -->
@@ -12,41 +12,83 @@
     <!-- Bootstrap CDN CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
+    <!-- Materialize CDN CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <!-- Jquery script link -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Firebase link -->
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
     <!-- moment.js -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-
-    <title>Stomping luck bricks</title>
-</head>
-
-<body>
-
-    <div class="mainform">
-        <h3>Fill this out below to create an account.</h3>
-            <form role="form">
-                <div class="form-group">
-                    <label for="fname-input">First Name</label>
-                    <input class="form-control" id="fname-input" type="text">
-                    <label for="lname-input">Last Name</label>
-                    <input class="form-control" id="lname-input" type="text">
-                    <label for="email-input">Email</label>
-                    <input class="form-control" id="email-input" type="text">
-                    <label for="password-input">Password</label>
-                    <input class="form-control" id="password-input" type="text">
-                    <label for="zipcode-input">Zip Code</label>
-                    <input class="form-control" id="password-input" type="text">
-                </div>
-                <button class="btn btn-default" id="add-person" type="submit">Submit</button>
-            </form>
-       
-    </div>
-
-
     <!-- javaScript Link -->
     <script type="text/javascript" src="assets/javascript/data.js"></script>
-</body>
+    <!-- Materialize Link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
+    <title>Stomping luck bricks</title>
+
+</head>
+<!-- background gradient -->
+<body>
+    <style>
+        body {
+    background-image: url("assets/images/covers.jpg");  
+        }  
+    </style>
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- Form Validation -->
+        </head>
+        <body>
+            <!-- Registration Form -->
+            <div class="mainform">
+                    <svg class="intro" viewbox="0 0 200 86">
+                            <text text-anchor="start" x="10" y="30" class="text text-stroke" clip-path="url(#text1)">Stomping</text>
+                            <text text-anchor="start" x="10" y="50" class="text text-stroke" clip-path="url(#text2)">Luck</text>
+                            <text text-anchor="start" x="10" y="70" class="text text-stroke" clip-path="url(#text3)">Bricks</text>
+                            <text text-anchor="start" x="10" y="30" class="text text-stroke text-stroke-2" clip-path="url(#text1)">Stomping</text>
+                            <text text-anchor="start" x="10" y="50" class="text text-stroke text-stroke-2" clip-path="url(#text2)">Luck</text>
+                            <text text-anchor="start" x="10" y="70" class="text text-stroke text-stroke-2" clip-path="url(#text3)">Bricks</text>
+                            <defs>
+                              <clipPath id="text1">
+                                <text text-anchor="start" x="10" y="30" class="text">Stomping</text>
+                              </clipPath>
+                              <clipPath id="text2">
+                                <text text-anchor="start" x="10" y="50" class="text">Luck</text>
+                              </clipPath>
+                              <clipPath id="text3">
+                                <text text-anchor="start" x="10" y="70" class="text">Bricks</text>
+                              </clipPath>
+                            </defs>
+                          </svg>
+                <h3>Fill this out below to create an account.</h3>
+                <form role="form" onsubmit="return checkforblank()">
+                    <div class="form-group">
+                        <label for="name-input">First Name</label>
+                        <input class="form-control" id="name-input" type="text" required>
+                        <label for="last-input">Last Name</label>
+                        <input class="form-control" id="last-input" type="text">
+                        <label for="email-input">Email</label>
+                        <input type="email" name="email" class="form-control" id="email-input" required>
+                        <label for="password-input">Password</label>
+                        <input class="form-control" id="password-input" type="password" required>
+                       
+                        <label for="zipcode-input">Zip Code</label>
+                        <input class="form-control" id="zipcode-input" type="text">
+                    </div>
+                    <button onclick="location.href='main.html';" class="btn btn-default" id="add-person" type="submit">Submit</button>
+                    <button onclick="location.href='login.html';" class="btn btn-default" id="log-in" type="submit">Login</button>
+                </form>
+            </div>
+        
+
+           
+
+
+
+
+        <!-- javaScript Link -->
+        <script type="text/javascript" src="assets/javascript/data.js"></script>
+</body>
 </html>

@@ -12,19 +12,101 @@
     <!-- Bootstrap CDN CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
+    <!-- Materialize CDN CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <!-- Jquery script link -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Firebase link -->
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
     <!-- moment.js -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!-- Materialize Link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
-    <title>Stomping luck bricks</title>
+
+
+    <title>Stomping Luck Bricks</title>
 </head>
 
 <body>
 
+    <div id="buttons-view"> Artist Keyword gets put here</div>
 
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">
+                <h2>
+                    <img src="assets/images/camera.png" alt="Smiley face" height="42" width="42">
+                    <div style="float:right; margin-top: 10px; margin-left:10px;" onclick="location.href='second.html';">&nbsp; Myconcerts
+                    </div>
+                </h2>
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <a href="main.html"> Search </a>
+                </li>
+                <li>
+                    <a href="second.html">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="indigo.lighten-2" style="font-size:10px;">
+        <form>
+            <h1>Search an artist to see upcoming shows </h1>
+            <div class="input-field" style="outline-color:white;">
+                <input id="search" type="search" required>
+                <label class="label-icon" for="search">
+                    <i class="material-icons">search</i>
+                </label>
+                <i class="material-icons">close</i>
+            </div>
+        </form>
+    </div>
+
+
+    <div id="artist-keyword">Artist Keyword gets put here</div>
+
+
+    <div class="row">
+        <div class="col s6">Date/Venue 1
+            <br>
+            <a class="waves-effect waves-light btn">Click for hotels near this venue</a>
+        </div>
+        <div class="col s6">Date/Venue 2
+            <br>
+            <a class="waves-effect waves-light btn">Click for hotels near this venue</a>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col s6">Date/Venue 3
+            <br>
+            <a class="waves-effect waves-light btn">Click for hotels near this venue</a>
+        </div>
+        <div class="col s6">Date/Venue 4
+            <br>
+            <a class="waves-effect waves-light btn">Click for hotels near this venue</a>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col s6">Date/Venue 5
+            <br>
+            <a class="waves-effect waves-light btn">Click for hotels near this venue</a>
+        </div>
+        <div class="col s6">Date/Venue 6
+            <br>
+            <a class="waves-effect waves-light btn">Click for hotels near this venue</a>
+        </div>
+    </div>
+
+ <!-- comment -->
 
     <!-- javaScript Link -->
     <script type="text/javascript" src="assets/javascript/data.js"></script>

@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>Spotify Web Playback SDK Quick Start Tutorial</title>
+</head>
+<body>
+  <h1>Spotify Web Playback SDK Quick Start Tutorial</h1>
+  <h2>Open your console log: <code>View > Developer > JavaScript Console</code></h2>
+
+  <script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
+  <script>
+  SC.initialize({
+    client_id: 'YOUR_CLIENT_ID'
+  });
+  
+  // stream track id 293
+  SC.stream('/tracks/293').then(function(player){
+    player.play().then(function(){
+      console.log('Playback started!');
+    }).catch(function(e){
+      console.error('Playback rejected. Try calling play() from a user interaction.', e);
+    });
+  });
+  </script>
+  
+ 
+</body>
+</html>

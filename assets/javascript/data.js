@@ -1,5 +1,14 @@
+$(function() {
+  $('.intro').addClass('go');
 
+  $('.reload').click(function() {
+    $('.intro').removeClass('go').delay(200).queue(function(next) {
+      $('.intro').addClass('go');
+      next();
+    });
 
+  });
+})
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyDXEMDXUtKYjOJoZoIwF-ZbKbg_yROcGUs",
@@ -13,38 +22,47 @@ firebase.initializeApp(config);
 
 var dataRef = firebase.database();
 
+// Create a variable to reference the database.
+var database = firebase.database();
+
 // Initial Values
-var fname = "";
-var lname = "";
+var name = "";
+var last = "";
 var email = "";
 var password = "";
+var zipcode = "";
 
 // Capture Button Click
-$("#add-person").on("click", function() {
+$("#add-person").on("click", function (event) {
+  event.preventDefault();
 
-  fname = $("#fname-input").val().trim();
-  lname = $("#lname-input").val().trim();
+  // Grabbed values from text boxes
+  name = $("#name-input").val().trim();
+  last = $("#last-input").val().trim();
   email = $("#email-input").val().trim();
   password = $("#password-input").val().trim();
-
-  // Push
-  dataRef.ref().push({
-
-    fname: fname,
-    lname: lname,
+  zipcode = $("#zipcode-input").val().trim();
+  // Code for handling the push
+  database.ref().push({
+    name: name,
     email: email,
+    last: last,
     password: password,
-  
-  )}; 
-  console.log(add-person);
-    // clear text
-$("#fname-input").val("");
-$("#lname-input").val("");
-$("#email-input").val("");
-$("#password-input").val("");
+    zipcode: zipcode,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP
+  });
 
-   // No refresh
-  return false;
- 
-  )}; 
+  // clear text
+  $("#name-input").val("");
+  $("#last-input").val("");
+  $("#email-input").val("");
+  $("#password-input").val("");
+  $("#zipcode-input").val("");
+});
 
+
+
+
+
+// firebase login info for nhosley@gmail.com and password nhosley
+// IzDQOwMANUVmNIH729VdTSevnhU2 
