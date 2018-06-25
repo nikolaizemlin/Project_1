@@ -20,8 +20,6 @@
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
     <!-- moment.js -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <!-- javaScript Link -->
-    <script type="text/javascript" src="assets/javascript/data.js"></script>
     <!-- Materialize Link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
@@ -40,7 +38,7 @@
 <html lang="en">
 <!-- Form Validation -->
         </head>
-        <body>
+        <body onload="document.registration.userid.focus();">
             <!-- Registration Form -->
             <div class="mainform">
                     <svg class="intro" viewbox="0 0 200 86">
@@ -63,7 +61,7 @@
                             </defs>
                           </svg>
                 <h3>Fill this out below to create an account.</h3>
-                <form role="form" onsubmit="return checkforblank()">
+                <form role="form" name='registration' onSubmit="return formValidation();">
                     <div class="form-group">
                         <label for="name-input">First Name</label>
                         <input class="form-control" id="name-input" type="text" required>
@@ -77,8 +75,8 @@
                         <label for="zipcode-input">Zip Code</label>
                         <input class="form-control" id="zipcode-input" type="text">
                     </div>
-                    <button onclick="location.href='main.html';" class="btn btn-default" id="add-person" type="submit">Submit</button>
-                    <button onclick="location.href='login.html';" class="btn btn-default" id="log-in" type="submit">Login</button>
+                    <button onclick="location.href='main.html';" class="btn" id="add-person" type="submit">Submit</button>
+                    <!-- <button onclick="location.href='login.html';" class="btn" id="log-in" type="submit">Login</button> -->
                 </form>
             </div>
         

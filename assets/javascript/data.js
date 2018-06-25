@@ -1,14 +1,14 @@
 $(function() {
   $('.intro').addClass('go');
+});
+//   // $('.reload').click(function() {
+//   //   $('.intro').removeClass('go').delay(200).queue(function(next) {
+//   //     $('.intro').addClass('go');
+//   //     next();
+//   //   });
 
-  $('.reload').click(function() {
-    $('.intro').removeClass('go').delay(200).queue(function(next) {
-      $('.intro').addClass('go');
-      next();
-    });
-
-  });
-})
+//   // });
+// })
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyDXEMDXUtKYjOJoZoIwF-ZbKbg_yROcGUs",
@@ -49,7 +49,10 @@ $("#add-person").on("click", function (event) {
     last: last,
     password: password,
     zipcode: zipcode,
-    dateAdded: firebase.database.ServerValue.TIMESTAMP
+    // dateAdded: firebase.database.ServerValue.TIMESTAMP
+
+
+
   });
 
   // clear text
