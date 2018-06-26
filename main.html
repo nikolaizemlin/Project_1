@@ -38,7 +38,6 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">
                 <h2>
-                    <!-- <img src="assets/images/camera.png" alt="Smiley face" height="42" width="42"> -->
                     <div style="float:right; margin-top: 10px; margin-left:10px; color:white;" onclick="location.href='main.html';">&nbsp; TCSEARCH
                     </div>
                 </h2>
@@ -47,10 +46,8 @@
                 <li>
                     <a href="index.html"> Log out </a>
                 </li>
-                <!--  <li>
-                    <a href="second.html">Logout</a>
-                </li>
-            </ul> -->
+                
+            </ul> 
         </div>
     </nav>
 
@@ -99,7 +96,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" id="artist-body">
         <div class="col s10">
             <br>
             <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
@@ -130,12 +127,16 @@
                     <strong>
                         <i class="fa fa-table"></i>
                         <div id="spotify-title">
+                              <h5>  
+                                Listen on Spotify 
+                                <img src="assets/images/spotify.png" alt="Smiley face" height="32" width="32"> 
+                               </h6>
                         </div>
                     </strong>
                 </div>
                 <!-- This main panel will hold each of the resulting articles -->
                 <div class="card-body" id="songs-section">
-                    <iframe id="spotify" src="" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+                    <iframe id="spotify" src="" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>
                 </div>
             </div>
 
@@ -145,7 +146,7 @@
 
 
     <!-- this will show saved shows-->
-    <div class="row">
+    <div class="row" style="display:none;">
         <div class="col s12">
             <br>
             <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
@@ -169,18 +170,16 @@
 
 
     <!-- Footer Region -->
-    <div id="footer-row" class="row">
-        <div class="col-sm-12">
-            <!-- Line Break followed by closing -->
-            <hr>
-            <h5 class="text-center">
-                <small>Thanks for using Myconcerts
-                    <i class="fa fa-heart"></i>
-                </small>
-            </h5>
-
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container" id="footer-left">
+                <p class="right">Thanks for using</p>
+            </div>
+            <div class="container" id="footer-right">
+                <h2>TCSEARCH</h2>
+            </div>
         </div>
-    </div>
+    </footer>
 
 
     <!-- javaScript Link -->
@@ -188,22 +187,26 @@
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript">
 
+        $("#artist-body").hide();
+
         //change this to start on search click
         $("#run-search").on("click", function (event) {
 
             event.preventDefault();
 
+            $("#artist-body").show();
 
             //clear the div
             $("#article-section").empty();
 
 
+//hello
 
             //change this to capture user entry in search
             var artist = $("#search-term").val().trim();
 
             $("#artist-name").text("Upcoming Shows");
-            $("#spotify-title").text("Listen on Spotify");
+           // $("#spotify-title").text("Listen on Spotify");
 
             var queryURL = "https://app.ticketmaster.com/discovery/v1/events.json?keyword=" + artist + "&apikey=GEqhJFCV9Y6TonOIwSahrRaPtQ3VnFGK&callback=myFunction";
 
@@ -266,7 +269,7 @@
 
 
             });
-            
+
         });
 
 
@@ -332,8 +335,11 @@
                         console.log("Error with ajax GET for Spotify");
                     }
                 });
+
             });
         };
+        // Clears the search text after search
+        $("#search-term").val("");
     </script>
 </body>
 
