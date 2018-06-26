@@ -135,7 +135,7 @@
                 </div>
                 <!-- This main panel will hold each of the resulting articles -->
                 <div class="card-body" id="songs-section">
-                    <iframe id="spotify" src="" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+                    <iframe id="spotify" src="" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>
                 </div>
             </div>
 
@@ -196,7 +196,6 @@
 
             //clear the div
             $("#article-section").empty();
-
 
 
             //change this to capture user entry in search
@@ -266,7 +265,7 @@
 
 
             });
-            
+
         });
 
 
@@ -332,8 +331,11 @@
                         console.log("Error with ajax GET for Spotify");
                     }
                 });
+
             });
         };
+        // Clears the search text after search
+        $("#search-term").val("");
     </script>
 </body>
 
