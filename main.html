@@ -168,10 +168,8 @@
 
             event.preventDefault();
 
-            // Empty source for spotify player
-            $("#spotify").attr("src", " ");
-            //change this to capture user entry in search
 
+            //change this to capture user entry in search
             var artist = $("#search-term").val().trim();
 
             $("#artist-name").text("Upcoming Shows");
@@ -197,23 +195,23 @@
                         var eventDate = response._embedded.events[i].dates.displayOptions.range.localEndDate;
                         var address = response._embedded.events[i]._embedded.venue[0].address.line2;
                         var eventUrl = response._embedded.events[i].eventUrl
-                                                
+
                         var eventTitleText = $("<h4>").text(eventTitle);
                         var eventNameText = $("<p>").text(eventName);
                         var eventDateText = $("<p>").text(eventDate);
                         var addressText = $("<p>").text(address);
 
-                        if (response._embedded.events[i].eventUrl === undefined){
-                        var newLink = $("<a href='https://www.ticketmaster.com/'>Click for Ticket Master!</a>");
+                        if (response._embedded.events[i].eventUrl === undefined) {
+                            var newLink = $("<a href='https://www.ticketmaster.com/'>Click for Ticket Master!</a>");
 
-                        } else{
-                        var newLink = $("<a />", {
-                            name: "link",
-                            href: eventUrl,
-                            text: "Click for " + artist + " tickets!"
-                        });                      
-                    }
-                                       
+                        } else {
+                            var newLink = $("<a />", {
+                                name: "link",
+                                href: eventUrl,
+                                text: "Click for " + artist + " tickets!"
+                            });
+                        }
+
                         eventDiv.prepend(newLink);
                         eventDiv.prepend(eventDateText);
                         eventDiv.prepend(addressText);
@@ -241,6 +239,9 @@
     </script>
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script>
+        // Empty source for spotify player
+        $("#spotify").attr("src", " ");
+
         // Gets the hash of the URL
         const hash = window.location.hash
             .substring(1)
@@ -260,7 +261,7 @@
         // variables for URL to get token
         const authEndpoint = 'https://accounts.spotify.com/authorize';
         const clientId = 'f2e2d50aac134850a09128c2646b8c0a';
-        const redirectUri = 'https://danthamaz.github.io/spotifyTest/';
+        const redirectUri = 'https://nikolaizemlin.github.io/Project_1/';
         const scopes = [
             'user-top-read'
         ];
