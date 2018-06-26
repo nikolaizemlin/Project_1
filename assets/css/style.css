@@ -51,6 +51,7 @@ h2{
 h3{
     font-size:20px;
 }
+
 h4{
     font-size:20px;
     color:rgb(226, 195, 19);
@@ -63,7 +64,7 @@ h4{
 
 /* unvisited link */
 a:link {
-    color: blue;
+    color: rgb(30, 163, 224);
 }
 
 /* mouse over link */
@@ -92,17 +93,17 @@ a:active {
 }
 
 .row{
-    border: solid 2px rgb(238, 237, 237);
+    border: solid 2px rgb(231, 229, 229);
 }
 
 
 .item{
-    border: solid 2px rgb(238, 237, 237);
+    border: solid 2px rgb(255, 255, 255);
 	padding: 10px;
     border-radius: 15px;
 }
 
-#artist-name, #spotify-title{
+#artist-name, #spotify-title, h6{
     font-size: 30px;
     text-align:center;
     text-transform: capitalize; 
@@ -114,7 +115,7 @@ a:active {
 
 
 .card-body{
-    background-color:rgb(241, 240, 240);
+    background-color:rgb(238, 237, 237);
 }
 
 
