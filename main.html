@@ -219,13 +219,37 @@
     </script>
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script>
-        var authorize = "https://accounts.spotify.com/authorize/?";
-        window.location.replace = authorize + "client_id=f2e2d50aac134850a09128c2646b8c0a&response_type=token&redirect_uri=https://danthamaz.github.io/spotifyTest/";
+        // Gets the hash of the URL
+        const hash = window.location.hash
+            .substring(1)
+            .split('&')
+            .reduce(function (initial, item) {
+                if (item) {
+                    var parts = item.split('=');
+                    initial[parts[0]] = decodeURIComponent(parts[1]);
+                }
+                return initial;
+            }, {});
+        window.location.hash = "";
+
+        // Sets token
+        let _token = hash.access_token;
+
+        // variables for URL to get token
+        const authEndpoint = 'https://accounts.spotify.com/authorize';
+        const clientId = 'f2e2d50aac134850a09128c2646b8c0a';
+        const redirectUri = 'https://danthamaz.github.io/spotifyTest/';
+        const scopes = [
+            'user-top-read'
+        ];
+
+        // If there is no token, redirect to Spotify authorization
+        if (!_token) {
+            window.location = `${authEndpoint}?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}`;
+        };
         window.onSpotifyWebPlaybackSDKReady = () => {
             $("#run-search").on("click", function (event) {
                 event.preventDefault();
-
-                var token = "";
 
                 var artist = $("#search-term").val().trim();
                 console.log("This is the artist: " + artist);
@@ -234,7 +258,7 @@
                     url: artistQuery,
                     method: 'GET',
                     headers: {
-                        'Authorization': 'Bearer ' + token
+                        'Authorization': 'Bearer ' + _token
                     },
                     success: function (response) {
                         console.log(response);
