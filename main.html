@@ -136,7 +136,7 @@
                 </div>
                 <!-- This main panel will hold each of the resulting articles -->
                 <div class="card-body" id="songs-section">
-                    <iframe id="spotify" src="" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+                    <iframe id="spotify" src="" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>
                 </div>
             </div>
 
@@ -170,18 +170,16 @@
 
 
     <!-- Footer Region -->
-    <div id="footer-row" class="row">
-        <div class="col-sm-12">
-            <!-- Line Break followed by closing -->
-            <hr>
-            <h5 class="text-center">
-                <small>Thanks for using Myconcerts
-                    <i class="fa fa-heart"></i>
-                </small>
-            </h5>
-
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container" id="footer-left">
+                <p class="right">Thanks for using</p>
+            </div>
+            <div class="container" id="footer-right">
+                <h2>TCSEARCH</h2>
+            </div>
         </div>
-    </div>
+    </footer>
 
 
     <!-- javaScript Link -->
@@ -271,7 +269,7 @@
 
 
             });
-            
+
         });
 
 
@@ -337,8 +335,11 @@
                         console.log("Error with ajax GET for Spotify");
                     }
                 });
+
             });
         };
+        // Clears the search text after search
+        $("#search-term").val("");
     </script>
 </body>
 
