@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Lab 04</title>
+<style type="text/css">
+<!--
+body,td,th {
+font-family: Arial, Helvetica, sans-serif;
+}
+.formBold {
+font-size: small;
+font-weight: bold;
+}
+.form {
+font-size: x-small;
+font-weight: bold;
+}
+.small {
+font-size: xx-small;
+font-family: Arial, Helvetica, sans-serif;
+}
+-->
+</style>
+<script>
+<!--
+function checkForNumber(fieldValue) {
+var numberCheck = isNaN(fieldValue);
+if (numberCheck == true) {
+window.alert("You must enter a numeric value for your ZIP Code!");
+return false;
+}
+}
+function confirmPassword() {
+if (document.Info.Password.value != document.Info.passwordVerify.value) {
+window.alert("You must use use the same password in the verification field!");
+document.Info.Password.focus();
+}
+}
+function ensurePasswordConfirm() {
+if (!document.Info.passwordVerify.value) {
+window.alert("You must confirm the password you entered!");
+document.Info.passwordVerify.focus();
+}
+}
+function checkCheckBox(formName) {
+if (formName.checkPolicy.checked == false) {
+window.alert("You must agree with the policies of this site by checking the checkbox, before continuing.");
+return false;
+} else {
+return true;
+}
+}
+function blankTextFieldValidator() {
+if (document.Info.fName.value == ""
+|| document.Info.mName.value == ""
+|| document.Info.lName.value == "") {
+window.alert("You must enter your name.");
+return true;
+}
+else if (document.Info.Address.value == ""
+|| document.Info.City.value == ""
+|| document.Info.State.value == ""
+|| document.Info.Zip.value == "") {
+window.alert("You must enter your address, city, state, and zip code.");
+return true;
+}
+else if (document.Info.Username.value == ""
+|| document.Info.Password.value == ""
+|| document.Info.passwordVerify.value == "") {
+window.alert("You must enter your desired username and password.");
+return true;
+}
+return false;
+}
+function confirmSubmit() {
+blankTextFieldValidator();
+checkCheckBox(document.Info);
+}
+function confirmReset() {
+var resetForm = window.confirm("Are you sure you want to reset the form?");
+if (resetForm == true)
+return true;
+return false;
+}
+-->
+</script>
+</head>
+
+<body>
+<h1>Lab 04</h1>
+<hr width="100%" noshade="noshade" />
+<form name="Info" id="Info" method="get" onsubmit="return confirmSubmit();" onreset="return confirmReset();">
+<table width="35%" cellspacing="0">
+<tr bgcolor="#0099FF">
+<td colspan="3" class="form">&nbsp;</td>
+</tr>
+<tr align="center" bgcolor="#999999">
+<td height="36" colspan="3" class="formBold">Please enter all your information
+in the boxes below:</td>
+</tr>
+<tr>
+<td width="181" class="form"> <p>First Name:<br />
+<input name="fName" type="text" id="fName" />
+</p></td>
+<td width="60" class="form"> <p>M.I.:<br />
+<input name="mName" type="text" id="mName2" size="2" maxlength="1" />
+</p></td>
+<td width="431" class="form">Last Name:<br /> <input name="lName" type="text" id="lName2" />
+</td>
+</tr>
+<tr>
+<td colspan="3" class="form"> <p>Street Adress:<br />
+<input name="Address" type="text" id="Address2" size="60" />
+</p></td>
+</tr>
+<tr>
+<td class="form">City:<br /> <input name="City" type="text" id="City2" /></td>
+<td class="form"> <p>State:<br />
+<input name="State" type="text" id="State2" size="3" maxlength="2" />
+</p></td>
+<td class="form">Zip Code:<br /> <input name="Zip" type="text" id="Zip2" size="10" maxlength="5" onchange="return checkForNumber(this.value);" />
+</td>
+</tr>
+<tr>
+<td colspan="3"><span class="form">Username:</span> <span class="small">(7-24
+characters)<br />
+</span> <input name="Username" type="text" id="userName2" size="26" maxlength="24" />
+</td>
+</tr>
+<tr>
+<td colspan="2"> <p><span class="form">Password:</span> <span class="small">(6-12
+characters)</span>
+<input name="Password" type="password" id="Password2" maxlength="12" onchange="ensurePasswordConfirm();" />
+<br />
+</p></td>
+<td><span class="form">Password:</span> <span class="small">(verify)</span><br />
+<input name="passwordVerify" type="password" id="passwordVerify2" maxlength="12" onchange="confirmPassword();" />
+</td>
+</tr>
+<tr>
+<td colspan="2" class="form">I agree to the terms and conditions in the
+policy:</td>
+<td class="form"> <input type="checkbox" name="checkPolicy" value="Yes" /></td>
+</tr>
+<tr>
+<td colspan="2" align="right">
+<input type="reset" name="Reset" value="Reset" /></td>
+<td align="left"><input type="submit" name="Submit" value="Submit" /></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
