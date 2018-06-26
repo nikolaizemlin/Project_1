@@ -191,39 +191,29 @@
                     for (i = 0; i < 5; i++) {
 
                         var eventDiv = $("<div class='item'>");
-                        //create var for eventTitle
+
                         var eventTitle = response._embedded.events[i].name;
                         var eventName = response._embedded.events[i]._embedded.venue[0].name;
                         var eventDate = response._embedded.events[i].dates.displayOptions.range.localEndDate;
                         var address = response._embedded.events[i]._embedded.venue[0].address.line2;
                         var eventUrl = response._embedded.events[i].eventUrl
-                        var secondUrl = (" www.ticketmaster.com");
-                        //if (response._embedded.events[i].eventUrl !== undefined){
-                        
-
-                       // } else{
-                       //     var eventUrl = $("<a />");
-                      //      $(eventUrl).prepend("www.ticketmaster.com");
-                      //  }
-
+                                                
                         var eventTitleText = $("<h4>").text(eventTitle);
                         var eventNameText = $("<p>").text(eventName);
                         var eventDateText = $("<p>").text(eventDate);
                         var addressText = $("<p>").text(address);
+
+                        if (response._embedded.events[i].eventUrl === undefined){
+                        var newLink = $("<a href='https://www.ticketmaster.com/'>Click for Ticket Master!</a>");
+
+                        } else{
                         var newLink = $("<a />", {
                             name: "link",
                             href: eventUrl,
-                            text: "click here for tickets"
-                        });
-                        
-                        var addressTM = $("<a />", {
-                            name: "link",
-                            href: secondUrl,
-                            text: "click here for ticket master"
-                        });
-                    
-                        
-                        eventDiv.prepend(addressTM);
+                            text: "Click for " + artist + " tickets!"
+                        });                      
+                    }
+                                       
                         eventDiv.prepend(newLink);
                         eventDiv.prepend(eventDateText);
                         eventDiv.prepend(addressText);
@@ -231,8 +221,6 @@
                         eventDiv.prepend(eventTitleText);
                         $("#article-section").prepend(eventDiv);
                         $("#article-section").append("<br>");
-
-
 
                     }
                 } else {
@@ -243,13 +231,12 @@
                     eventDiv.append(noShows);
                     $("#article-section").prepend(eventDiv);
 
+
                 }
 
             });
         });
 
-
-//figure out why some links dont show up- if an artist doesnt have a link then dont show it
 
     </script>
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
