@@ -206,8 +206,8 @@ svg.intro {
     margin-top:25px;
  }
 
-#footer-row{
-    background-color: rgb(247, 246, 245);
+.page-footer {
+    background-color: rgb(43, 42, 42);
 }
 
 #name-input, #last-input, #email-input, #password-input, #zipcode-input{
@@ -216,4 +216,15 @@ svg.intro {
 
 #songs-section {
     width: 80%;
+}
+
+#footer-right {
+    padding-bottom: 12px;
+    padding-left: 2.5px;
+}
+
+#footer-left {
+    padding-top: 0px;
+    padding-bottom: 5px;
+    padding-right: 2.5px;
 }

@@ -169,18 +169,16 @@
 
 
     <!-- Footer Region -->
-    <div id="footer-row" class="row">
-        <div class="col-sm-12">
-            <!-- Line Break followed by closing -->
-            <hr>
-            <h5 class="text-center">
-                <small>Thanks for using Myconcerts
-                    <i class="fa fa-heart"></i>
-                </small>
-            </h5>
-
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container" id="footer-left">
+                <p class="right">Thanks for using</p>
+            </div>
+            <div class="container" id="footer-right">
+                <h2>TCSEARCH</h2>
+            </div>
         </div>
-    </div>
+    </footer>
 
 
     <!-- javaScript Link -->
@@ -272,37 +270,37 @@
     </script>
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script>
-        // Empty source for spotify player
-        $("#spotify").attr("src", " ");
+        // // Empty source for spotify player
+        // $("#spotify").attr("src", " ");
 
-        // Gets the hash of the URL
-        const hash = window.location.hash
-            .substring(1)
-            .split('&')
-            .reduce(function (initial, item) {
-                if (item) {
-                    var parts = item.split('=');
-                    initial[parts[0]] = decodeURIComponent(parts[1]);
-                }
-                return initial;
-            }, {});
-        window.location.hash = "";
+        // // Gets the hash of the URL
+        // const hash = window.location.hash
+        //     .substring(1)
+        //     .split('&')
+        //     .reduce(function (initial, item) {
+        //         if (item) {
+        //             var parts = item.split('=');
+        //             initial[parts[0]] = decodeURIComponent(parts[1]);
+        //         }
+        //         return initial;
+        //     }, {});
+        // window.location.hash = "";
 
-        // Sets token
-        let _token = hash.access_token;
+        // // Sets token
+        // let _token = hash.access_token;
 
-        // variables for URL to get token
-        const authEndpoint = 'https://accounts.spotify.com/authorize';
-        const clientId = 'f2e2d50aac134850a09128c2646b8c0a';
-        const redirectUri = 'https://nikolaizemlin.github.io/Project_1/main.html';
-        const scopes = [
-            'user-top-read'
-        ];
+        // // variables for URL to get token
+        // const authEndpoint = 'https://accounts.spotify.com/authorize';
+        // const clientId = 'f2e2d50aac134850a09128c2646b8c0a';
+        // const redirectUri = 'https://nikolaizemlin.github.io/Project_1/main.html';
+        // const scopes = [
+        //     'user-top-read'
+        // ];
 
-        // If there is no token, redirect to Spotify authorization
-        if (!_token) {
-            window.location = `${authEndpoint}?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}`;
-        };
+        // // If there is no token, redirect to Spotify authorization
+        // if (!_token) {
+        //     window.location = `${authEndpoint}?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}`;
+        // };
         window.onSpotifyWebPlaybackSDKReady = () => {
             $("#run-search").on("click", function (event) {
                 event.preventDefault();
