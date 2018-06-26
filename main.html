@@ -38,7 +38,6 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">
                 <h2>
-                    <!-- <img src="assets/images/camera.png" alt="Smiley face" height="42" width="42"> -->
                     <div style="float:right; margin-top: 10px; margin-left:10px; color:white;" onclick="location.href='main.html';">&nbsp; TCSEARCH
                     </div>
                 </h2>
@@ -47,10 +46,8 @@
                 <li>
                     <a href="index.html"> Log out </a>
                 </li>
-                <!--  <li>
-                    <a href="second.html">Logout</a>
-                </li>
-            </ul> -->
+                
+            </ul> 
         </div>
     </nav>
 
@@ -99,7 +96,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" id="artist-body">
         <div class="col s10">
             <br>
             <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
@@ -130,6 +127,10 @@
                     <strong>
                         <i class="fa fa-table"></i>
                         <div id="spotify-title">
+                              <h5>  
+                                Listen on Spotify 
+                                <img src="assets/images/spotify.png" alt="Smiley face" height="32" width="32"> 
+                               </h6>
                         </div>
                     </strong>
                 </div>
@@ -145,7 +146,7 @@
 
 
     <!-- this will show saved shows-->
-    <div class="row">
+    <div class="row" style="display:none;">
         <div class="col s12">
             <br>
             <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
@@ -186,21 +187,26 @@
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript">
 
+        $("#artist-body").hide();
+
         //change this to start on search click
         $("#run-search").on("click", function (event) {
 
             event.preventDefault();
 
+            $("#artist-body").show();
 
             //clear the div
             $("#article-section").empty();
 
 
+//hello
+
             //change this to capture user entry in search
             var artist = $("#search-term").val().trim();
 
             $("#artist-name").text("Upcoming Shows");
-            $("#spotify-title").text("Listen on Spotify");
+           // $("#spotify-title").text("Listen on Spotify");
 
             var queryURL = "https://app.ticketmaster.com/discovery/v1/events.json?keyword=" + artist + "&apikey=GEqhJFCV9Y6TonOIwSahrRaPtQ3VnFGK&callback=myFunction";
 
@@ -270,37 +276,37 @@
     </script>
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script>
-        // // Empty source for spotify player
-        // $("#spotify").attr("src", " ");
+        // Empty source for spotify player
+        $("#spotify").attr("src", " ");
 
-        // // Gets the hash of the URL
-        // const hash = window.location.hash
-        //     .substring(1)
-        //     .split('&')
-        //     .reduce(function (initial, item) {
-        //         if (item) {
-        //             var parts = item.split('=');
-        //             initial[parts[0]] = decodeURIComponent(parts[1]);
-        //         }
-        //         return initial;
-        //     }, {});
-        // window.location.hash = "";
+        // Gets the hash of the URL
+        const hash = window.location.hash
+            .substring(1)
+            .split('&')
+            .reduce(function (initial, item) {
+                if (item) {
+                    var parts = item.split('=');
+                    initial[parts[0]] = decodeURIComponent(parts[1]);
+                }
+                return initial;
+            }, {});
+        window.location.hash = "";
 
-        // // Sets token
-        // let _token = hash.access_token;
+        // Sets token
+        let _token = hash.access_token;
 
-        // // variables for URL to get token
-        // const authEndpoint = 'https://accounts.spotify.com/authorize';
-        // const clientId = 'f2e2d50aac134850a09128c2646b8c0a';
-        // const redirectUri = 'https://nikolaizemlin.github.io/Project_1/main.html';
-        // const scopes = [
-        //     'user-top-read'
-        // ];
+        // variables for URL to get token
+        const authEndpoint = 'https://accounts.spotify.com/authorize';
+        const clientId = 'f2e2d50aac134850a09128c2646b8c0a';
+        const redirectUri = 'https://nikolaizemlin.github.io/Project_1/main.html';
+        const scopes = [
+            'user-top-read'
+        ];
 
-        // // If there is no token, redirect to Spotify authorization
-        // if (!_token) {
-        //     window.location = `${authEndpoint}?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}`;
-        // };
+        // If there is no token, redirect to Spotify authorization
+        if (!_token) {
+            window.location = `${authEndpoint}?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}`;
+        };
         window.onSpotifyWebPlaybackSDKReady = () => {
             $("#run-search").on("click", function (event) {
                 event.preventDefault();
