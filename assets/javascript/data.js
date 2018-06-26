@@ -60,5 +60,4 @@ $("#add-person").on("click", function (event) {
 
 
 
-// firebase login info for nhosley@gmail.com and password nhosley
-// IzDQOwMANUVmNIH729VdTSevnhU2 
+
