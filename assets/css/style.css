@@ -213,3 +213,7 @@ svg.intro {
 #name-input, #last-input, #email-input, #password-input, #zipcode-input{
     width:80%;
 }
+
+#songs-section {
+    width: 80%;
+}
