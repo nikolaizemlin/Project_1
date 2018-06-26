@@ -25,6 +25,13 @@ body {
     border-radius: 15px;
 }
 
+li{
+    letter-spacing: 0.15em;  
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top:15px; 
+    font-size:5px;
+}
+
 h1{
     color:  black;
     font-size:30px;
@@ -36,7 +43,8 @@ h2{
     font-size:20px;    
     color:white;
     letter-spacing: 0.25em;  
-    font-family: Impact, Charcoal, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    
     margin-top:5px;
 }
 
@@ -94,7 +102,7 @@ a:active {
     border-radius: 15px;
 }
 
-#artist-name{
+#artist-name, #spotify-title{
     font-size: 30px;
     text-align:center;
     text-transform: capitalize; 
@@ -102,6 +110,8 @@ a:active {
     font-family: Impact, Charcoal, sans-serif;
 
 }
+
+
 
 .card-body{
     background-color:rgb(248, 247, 247);
@@ -198,4 +208,8 @@ svg.intro {
 
 #footer-row{
     background-color: rgb(247, 246, 245);
+}
+
+#name-input, #last-input, #email-input, #password-input, #zipcode-input{
+    width:80%;
 }
