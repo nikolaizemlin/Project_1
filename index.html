@@ -27,19 +27,13 @@
 
 </head>
 <!-- background gradient -->
-<body>
+<body onload="document.registration.userid.focus();">
     <style>
         body {
     background-image: url("assets/images/covers.jpg");  
         }  
     </style>
 
-<!DOCTYPE html>
-<html lang="en">
-<!-- Form Validation -->
-        </head>
-        <body onload="document.registration.userid.focus();">
-            <!-- Registration Form -->
             <div class="mainform">
                     <svg class="intro" viewbox="0 0 200 86">
                             <text text-anchor="start" x="10" y="30" class="text text-stroke" clip-path="url(#text1)">Stomping</text>
@@ -73,19 +67,12 @@
                         <input class="form-control" id="password-input" type="password" required>
                        
                         <label for="zipcode-input">Zip Code</label>
-                        <input class="form-control" id="zipcode-input" type="text">
+                        <input class="form-control" id="zipcode-input" type="number">
                     </div>
-                    <button onclick="location.href='main.html';" class="btn" id="add-person" type="submit">Submit</button>
+                    <button onclick="location.href='main.html';" class="btn" id="add-person" type="submit" onclick="validator()">Submit</button>
                     <!-- <button onclick="location.href='login.html';" class="btn" id="log-in" type="submit">Login</button> -->
                 </form>
             </div>
-        
-
-           
-
-
-
-
         <!-- javaScript Link -->
         <script type="text/javascript" src="assets/javascript/data.js"></script>
 </body>
