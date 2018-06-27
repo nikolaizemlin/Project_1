@@ -99,8 +99,9 @@ a:active {
 
 .item{
     border: solid 2px rgb(255, 255, 255);
-	padding: 10px;
+	padding: 20px;
     border-radius: 15px;
+    margin-bottom:10px;
 }
 
 #artist-name, #spotify-title, h6{
@@ -115,7 +116,7 @@ a:active {
 
 
 .card-body{
-    background-color:rgb(238, 237, 237);
+    background-color:rgb(248, 245, 245);
 }
 
 
@@ -211,6 +212,10 @@ svg.intro {
     background-color: rgb(43, 42, 42);
 }
 
+.container{
+    height:10px;
+}
+
 #name-input, #last-input, #email-input, #password-input, #zipcode-input{
     width:80%;
 }
@@ -241,17 +246,22 @@ input:invalid:not(:focus) {
     outline: 1px solid #f00;
 }
 
-#songs-section {
-    width: 80%;
-}
-
 #footer-right {
-    padding-bottom: 12px;
+    padding-bottom: 17px;
     padding-left: 2.5px;
 }
 
 #footer-left {
     padding-top: 0px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
     padding-right: 2.5px;
 }
+
+.main-content {
+    min-height: calc(100vh - 70px);
+}
+
+.footer {
+    height: 50px;
+}
+
