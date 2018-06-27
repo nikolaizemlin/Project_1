@@ -220,18 +220,48 @@ svg.intro {
     width:80%;
 }
 
-#songs-section {
-    width: 80%;
+@font-face {
+    font-family: 'Fira Sans';
+    src: local('FiraSans-Regular'),
+    url('/media/fonts/FiraSans-Regular.woff2') format('woff2');
+}
+
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+}
+
+.output {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+label {
+    font-size: .8rem;
+    display: block;
+    margin: 1rem 0 .2rem 0;
+}
+
+input:invalid:not(:focus) {
+    outline: 1px solid #f00;
 }
 
 #footer-right {
-    padding-bottom: 12px;
+    padding-bottom: 17px;
     padding-left: 2.5px;
 }
 
 #footer-left {
     padding-top: 0px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
     padding-right: 2.5px;
+}
+
+.main-content {
+    min-height: calc(100vh - 70px);
+}
+
+.footer {
+    height: 50px;
 }
 
