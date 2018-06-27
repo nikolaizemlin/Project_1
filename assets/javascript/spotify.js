@@ -24,9 +24,9 @@ const redirectUri = "https://nikolaizemlin.github.io/Project_1/main.html";
 const scopes = ["user-top-read"];
 
 // If there is no token, redirect to Spotify authorization
-// if (!_token) {
-//     window.location = `${authEndpoint}?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}`;
-// };
+if (!_token) {
+    window.location = `${authEndpoint}?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}`;
+};
 window.onSpotifyWebPlaybackSDKReady = () => {
   $("#run-search").on("click", function(event) {
     event.preventDefault();
