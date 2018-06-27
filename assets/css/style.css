@@ -139,9 +139,9 @@ p{
 
 svg.intro {
     /* background: linear-gradient(135deg, #d40606, #5f110e); */
-    max-width: 55%;
+    max-width: 35%;
     position: absolute;
-    padding-left: 20px;
+    padding-left: 5px;
     top: 50%;
     left: 30%;
     -webkit-transform: translate(-50%, -50%);

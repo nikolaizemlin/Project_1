@@ -22,70 +22,14 @@
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <!-- Materialize Link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-
+<!-- valadation javascript file -->
+    <!-- <script type='text/javascript' src='assets/javascript/jquery.min.js'></script> -->
     <title>Stomping luck bricks</title>
-    <script>   
-      var myInput = document.getElementById("password");
-      var letter = document.getElementById("letter");
-      var capital = document.getElementById("capital");
-      var number = document.getElementById("number");
-      var length = document.getElementById("length");
-      
-      // When the user clicks on the password field, show the message box
-      myInput.onfocus = function() {
-        document.getElementById("message").style.display = "block";
-      }
-      
-      // When the user clicks outside of the password field, hide the message box
-      myInput.onblur = function() {
-        document.getElementById("message").style.display = "none";
-      }
-      
-      // When the user starts to type something inside the password field
-      myInput.onkeyup = function() {
-        // Validate lowercase letters
-        var lowerCaseLetters = /[a-z]/g;
-        if(myInput.value.match(lowerCaseLetters)) { 
-          letter.classList.remove("invalid");
-          letter.classList.add("valid");
-        } else {
-          letter.classList.remove("valid");
-          letter.classList.add("invalid");
-      }
-      
-        // Validate capital letters
-        var upperCaseLetters = /[A-Z]/g;
-        if(myInput.value.match(upperCaseLetters)) { 
-          capital.classList.remove("invalid");
-          capital.classList.add("valid");
-        } else {
-          capital.classList.remove("valid");
-          capital.classList.add("invalid");
-        }
-      
-        // Validate numbers
-        var numbers = /[0-9]/g;
-        if(myInput.value.match(numbers)) { 
-          number.classList.remove("invalid");
-          number.classList.add("valid");
-        } else {
-          number.classList.remove("valid");
-          number.classList.add("invalid");
-        }
-      
-        // Validate length
-        if(myInput.value.length >= 8) {
-          length.classList.remove("invalid");
-          length.classList.add("valid");
-        } else {
-          length.classList.remove("valid");
-          length.classList.add("invalid");
-        }
-      }
-            </script>
+   
 </head>
+
 <!-- background gradient -->
-<body onload="document.registration.userid.focus();">
+<body>
     <style>
         body {
     background-image: url("assets/images/covers.jpg");  
@@ -115,101 +59,86 @@
 
                 <h3>Fill this out below to create an account.</h3>
                 <form role="form" name='registration' onSubmit="return formValidation();">
-
                     <div class="form-group">
                         <label for="name-input">First Name</label>
-                        <input class="form-control" id="name-input" type="text">
+                        <input class="form-control" id="name-input" type="text" onblur="validate()"> <div id="div1"></div>
                         <label for="last-input">Last Name</label>
-                        <input class="form-control" id="last-input" type="text">
+                        <input class="form-control" id="last-input" type="text" onblur="validate()"> <div id="div5"></div>
                         <label for="email-input">Email</label>
-                        <input type="email" placeholder="drone@globex.com" pattern=".+@globex.com" size="30" required title="Must be a globex.com email address" id="email-input" /></br>
+                        <input type="email" placeholder="drone@globex.com" size="30" id="email-input" onblur="validate()"> <div id="div2"></div>
                         <label for="password-input">Password</label>
-                        <input class="form-control" id="password-input" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-                        
-                 <span class="validity"></span>
-                       
+                        <input class="form-control" id="password-input" name="psw" onblur="validate()"> <div id="div3"></div>          
+                        <span class="validity"></span>     
                         <label for="zipcode-input">Zip Code</label>
-                        <input class="form-control" id="zipcode-input" type="number">
+                        <input class="form-control" id="zipcode-input" type="number" onblur="validate()"> <div id="div6"></div>
                     </div>
                     <button onclick="location.href='main.html';" class="btn" id="add-person" type="submit" onclick="validator()">Submit</button>
                     <!-- <button onclick="location.href='login.html';" class="btn" id="log-in" type="submit">Login</button> -->
-                    <div id="message">
-                      <h3>Password must contain the following:</h3>
-                      <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-                      <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-                      <p id="number" class="invalid">A <b>number</b></p>
-                      <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-                    </div>
+
                 </form>
-            </div>
-      
-            
-            <script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
+            </div> 
             <script>
-           
-           
-      var myInput = document.getElementById("password");
-      var letter = document.getElementById("letter");
-      var capital = document.getElementById("capital");
-      var number = document.getElementById("number");
-      var length = document.getElementById("length");
-      
-      // When the user clicks on the password field, show the message box
-      myInput.onfocus = function() {
-        document.getElementById("message").style.display = "block";
-      }
-      
-      // When the user clicks outside of the password field, hide the message box
-      myInput.onblur = function() {
-        document.getElementById("message").style.display = "none";
-      }
-      
-      // When the user starts to type something inside the password field
-      myInput.onkeyup = function() {
-        // Validate lowercase letters
-        var lowerCaseLetters = /[a-z]/g;
-        if(myInput.value.match(lowerCaseLetters)) { 
-          letter.classList.remove("invalid");
-          letter.classList.add("valid");
-        } else {
-          letter.classList.remove("valid");
-          letter.classList.add("invalid");
-      }
-      
-        // Validate capital letters
-        var upperCaseLetters = /[A-Z]/g;
-        if(myInput.value.match(upperCaseLetters)) { 
-          capital.classList.remove("invalid");
-          capital.classList.add("valid");
-        } else {
-          capital.classList.remove("valid");
-          capital.classList.add("invalid");
-        }
-      
-        // Validate numbers
-        var numbers = /[0-9]/g;
-        if(myInput.value.match(numbers)) { 
-          number.classList.remove("invalid");
-          number.classList.add("valid");
-        } else {
-          number.classList.remove("valid");
-          number.classList.add("invalid");
-        }
-      
-        // Validate length
-        if(myInput.value.length >= 8) {
-          length.classList.remove("invalid");
-          length.classList.add("valid");
-        } else {
-          length.classList.remove("valid");
-          length.classList.add("invalid");
-        }
-      }
-      
-      
-      
-      
+                function validate()
+                {
+                    var fname = document.getElementById("name-input").value;
+                    var lname = document.getElementById("last-input").value;
+                    var Email = document.getElementById("email-input").value;
+                    var password = document.getElementById("password-input").value;
+                    var zipcode = document.getElementById("zipcode-input").value;
+                   
+                    if(fname==="")
+                    {
+                        document.getElementById("div1").innerHTML="Enter a value";
+                        document.getElementById("div1").style.color="Red";
+                        
+                    }
+                    else
+                    {
+                        document.getElementById("div1").innerHTML="";
+                    }
+                    if(lname==="")
+                    {
+                        document.getElementById("div5").innerHTML="Enter a value";
+                        document.getElementById("div5").style.color="Red";
+                        
+                    }
+                    else
+                    {
+                        document.getElementById("div5").innerHTML="";
+                    }
+                    if(Email.indexOf("@")> -1)
+                    {
+                        document.getElementById("div2").innerHTML="";
+                    }
+                     else
+                    {
+                        document.getElementById("div2").innerHTML="Enter the correct email address";
+                        document.getElementById("div2").style.color="Red";
+                        
+                    }
+                    if(password.length<=6)
+                    {
+                        document.getElementById("div3").innerHTML="Password is weak";
+                        document.getElementById("div3").style.color="Red";
+                    }
+                     else
+                    {
+                        document.getElementById("div3").innerHTML="";
+                    }
+                    if(zipcode==="")
+                    {
+                        document.getElementById("div6").innerHTML="Enter a value";
+                        document.getElementById("div6").style.color="Red";
+                        
+                    }
+                    else
+                    {
+                        document.getElementById("div6").innerHTML="";
+                    }
+                }
             </script>
+            
+   
         <!-- javaScript Link -->
         <script type="text/javascript" src="assets/javascript/data.js"></script>
 </body>
